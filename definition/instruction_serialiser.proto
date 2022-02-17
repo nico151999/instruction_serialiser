@@ -1,0 +1,114 @@
+syntax = "proto3";
+
+package instruction_serialiser;
+option go_package = "github.com/nico151999/instruction_serialiser/go/instruction_serialiser";
+
+message InstructionWrapper {
+  oneof wrapper {
+    ArithmeticResultNodeWrapper arithmetic_wrapper = 1;
+    LogicalResultNodeWrapper logical_wrapper = 2;
+  }
+}
+
+message ArithmeticResultNodeWrapper {
+  oneof node {
+    AddNode add_node = 1;
+    DivideNode divide_node = 2;
+    MultiplyNode multiply_node = 3;
+    NumberNode number_node = 4;
+    SubtractNode subtract_node = 5;
+    ArithmeticVariableNode variable_node = 6;
+    LogarithmNode logarithm_node = 7;
+    PowerNode power_node = 8;
+    ModuloNode modulo_node = 9;
+  }
+}
+
+message LogicalResultNodeWrapper {
+  oneof node {
+    EqualNode equal_node = 1;
+    AndNode and_node = 2;
+    BoolNode bool_node = 3;
+    NegateNode negate_node = 4;
+    OrNode or_node = 5;
+    XorNode xor_node = 6;
+    LogicalVariableNode variable_node = 7;
+  }
+}
+
+message AddNode {
+  ArithmeticResultNodeWrapper left_child = 1;
+  ArithmeticResultNodeWrapper right_child = 2;
+}
+
+message DivideNode {
+  ArithmeticResultNodeWrapper left_child = 1;
+  ArithmeticResultNodeWrapper right_child = 2;
+}
+
+message MultiplyNode {
+  ArithmeticResultNodeWrapper left_child = 1;
+  ArithmeticResultNodeWrapper right_child = 2;
+}
+
+message SubtractNode {
+  ArithmeticResultNodeWrapper left_child = 1;
+  ArithmeticResultNodeWrapper right_child = 2;
+}
+
+message LogarithmNode {
+  ArithmeticResultNodeWrapper left_child = 1;
+  ArithmeticResultNodeWrapper right_child = 2; // the base
+}
+
+message PowerNode {
+  ArithmeticResultNodeWrapper left_child = 1; // the base
+  ArithmeticResultNodeWrapper right_child = 2; // the exponent
+}
+
+message ModuloNode {
+  ArithmeticResultNodeWrapper left_child = 1;
+  ArithmeticResultNodeWrapper right_child = 2;
+}
+
+message NumberNode {
+  double value = 1;
+}
+
+message ArithmeticVariableNode {
+  string variable_name = 1;
+}
+
+message AndNode {
+  LogicalResultNodeWrapper left_child = 1;
+  LogicalResultNodeWrapper right_child = 2;
+}
+
+// The equal node compares arithmetic nodes only.
+// If you want to determine equality of logical nodes use Xor followed by a negation.
+message EqualNode {
+  ArithmeticResultNodeWrapper left_child = 1;
+  ArithmeticResultNodeWrapper right_child = 2;
+}
+
+message NegateNode {
+  LogicalResultNodeWrapper child = 1;
+}
+
+message OrNode {
+  LogicalResultNodeWrapper left_child = 1;
+  LogicalResultNodeWrapper right_child = 2;
+}
+
+message XorNode {
+  LogicalResultNodeWrapper left_child = 1;
+  LogicalResultNodeWrapper right_child = 2;
+}
+
+message BoolNode {
+  bool value = 1;
+}
+
+message LogicalVariableNode {
+  string variable_name = 1;
+}
