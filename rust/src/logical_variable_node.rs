@@ -1,10 +1,12 @@
 use std::collections::HashMap;
 use crate::calculation_error::CalculationError;
 use crate::generic_node::GenericNode;
-use crate::instruction_serialiser::{LogicalResultNodeWrapper, LogicalVariableNode};
+use crate::instruction_serialiser::LogicalResultNodeWrapper;
 use crate::instruction_serialiser::logical_result_node_wrapper::Node;
 use crate::logical_type::LogicalType;
 use crate::parameter::Parameter;
+
+pub use crate::instruction_serialiser::LogicalVariableNode;
 
 impl GenericNode<LogicalType> for LogicalVariableNode {
     fn calculate(&self, parameters: &HashMap<&str, Parameter>) -> Result<LogicalType, CalculationError> {

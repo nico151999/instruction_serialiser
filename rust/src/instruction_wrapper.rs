@@ -1,6 +1,9 @@
 use prost::{DecodeError, Message};
-use crate::instruction_serialiser::InstructionWrapper;
 use crate::serialisation_error::SerialisationError;
+
+pub use crate::instruction_serialiser::InstructionWrapper;
+pub use crate::instruction_serialiser::instruction_wrapper::Wrapper::ArithmeticWrapper;
+pub use crate::instruction_serialiser::instruction_wrapper::Wrapper::LogicalWrapper;
 
 impl InstructionWrapper {
     pub fn deserialise(data: &[u8]) -> Result<InstructionWrapper, SerialisationError> {

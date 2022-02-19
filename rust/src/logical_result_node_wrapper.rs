@@ -21,12 +21,7 @@ impl NodeWrapper<LogicalType> for LogicalResultNodeWrapper {
             Node::NegateNode(node) => node.calculate(parameters),
             Node::OrNode(node) => node.calculate(parameters),
             Node::XorNode(node) => node.calculate(parameters),
-            Node::VariableNode(node) => node.calculate(parameters),
-            _ => {
-                // this arm is meant to allow easier debugging if a new logical node type is added in the future.
-                // if there is a language feature allowing for doing the same on every match type use it instead
-                Err(CalculationError::new("Unsupported logical operation found in instruction"))
-            }
+            Node::VariableNode(node) => node.calculate(parameters)
         }
     }
     fn serialise(self) -> Result<Vec<u8>, SerialisationError> {

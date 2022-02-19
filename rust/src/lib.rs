@@ -3,47 +3,56 @@ extern crate core;
 mod instruction_serialiser {
     include!(concat!(env!("OUT_DIR"), "/instruction_serialiser.rs"));
 }
-pub mod parameter;
-pub mod add_node;
-pub mod node_wrapper;
-pub mod calculation_error;
-pub mod generic_node;
-pub mod arithmetic_type;
-pub mod logical_type;
-pub mod arithmetic_result_node_wrapper;
-pub mod logical_result_node_wrapper;
-pub mod divide_node;
-pub mod multiply_node;
-pub mod subtract_node;
-pub mod logarithm_node;
-pub mod power_node;
-pub mod modulo_node;
-pub mod arithmetic_variable_node;
-pub mod number_node;
-pub mod equal_node;
-pub mod and_node;
-pub mod or_node;
-pub mod xor_node;
-pub mod bool_node;
-pub mod negate_node;
-pub mod logical_variable_node;
-pub mod serialisation_error;
-pub mod instruction_wrapper;
+mod parameter;
+mod add_node;
+mod node_wrapper;
+mod calculation_error;
+mod generic_node;
+mod arithmetic_type;
+mod logical_type;
+mod divide_node;
+mod multiply_node;
+mod subtract_node;
+mod logarithm_node;
+mod power_node;
+mod modulo_node;
+mod arithmetic_variable_node;
+mod number_node;
+mod equal_node;
+mod and_node;
+mod or_node;
+mod xor_node;
+mod bool_node;
+mod negate_node;
+mod logical_variable_node;
+mod serialisation_error;
+mod arithmetic_result_node_wrapper;
+mod logical_result_node_wrapper;
 
+pub mod instruction_wrapper;
+pub use instruction_wrapper::InstructionWrapper;
+
+pub use crate::node_wrapper::NodeWrapper;
+
+pub use crate::parameter::Parameter;
+
+pub use crate::number_node::NumberNode;
+pub use crate::bool_node::BoolNode;
+
+pub use crate::logical_variable_node::LogicalVariableNode;
+pub use crate::arithmetic_variable_node::ArithmeticVariableNode;
 
 #[cfg(test)]
 mod tests {
     use std::collections::HashMap;
     use std::process;
-    use crate::instruction_serialiser::{
-        instruction_wrapper,
-        InstructionWrapper,
-        NumberNode,
-        ArithmeticVariableNode,
-        BoolNode
-    };
-    use crate::node_wrapper::NodeWrapper;
-    use crate::parameter::Parameter::Arithmetic;
+    use crate::NumberNode;
+    use crate::BoolNode;
+    use crate::ArithmeticVariableNode;
+    use crate::instruction_wrapper;
+    use crate::InstructionWrapper;
+    use crate::NodeWrapper;
+    use crate::Parameter::Arithmetic;
 
     #[test]
     fn workflow() {
@@ -56,11 +65,11 @@ mod tests {
         let res = instruction.serialise().unwrap();
         let wrapper = InstructionWrapper::deserialise(&res);
         match wrapper.unwrap().wrapper.unwrap() {
-            instruction_wrapper::Wrapper::ArithmeticWrapper(_) => {
+            instruction_wrapper::ArithmeticWrapper(_) => {
                 println!("Unexpected arithmetic wrapper");
                 process::exit(1);
             }
-            instruction_wrapper::Wrapper::LogicalWrapper(wrapper) => {
+            instruction_wrapper::LogicalWrapper(wrapper) => {
                 let result = wrapper.calculate(
                     Some(
                         &HashMap::from(

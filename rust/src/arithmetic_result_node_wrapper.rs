@@ -22,12 +22,7 @@ impl NodeWrapper<ArithmeticType> for ArithmeticResultNodeWrapper {
             arithmetic_result_node_wrapper::Node::VariableNode(node) => node.calculate(parameters),
             arithmetic_result_node_wrapper::Node::LogarithmNode(node) => node.calculate(parameters),
             arithmetic_result_node_wrapper::Node::PowerNode(node) => node.calculate(parameters),
-            arithmetic_result_node_wrapper::Node::ModuloNode(node) => node.calculate(parameters),
-            _ => {
-                // this arm is meant to allow easier debugging if a new arithmetic node type is added in the future.
-                // if there is a language feature allowing for doing the same on every match type use it instead
-                Err(CalculationError::new("Unsupported arithmetic operation found in instruction"))
-            }
+            arithmetic_result_node_wrapper::Node::ModuloNode(node) => node.calculate(parameters)
         }
     }
     fn serialise(self) -> Result<Vec<u8>, SerialisationError> {
