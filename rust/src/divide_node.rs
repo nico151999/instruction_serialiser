@@ -16,7 +16,7 @@ impl GenericNode<ArithmeticType> for DivideNode {
         let right_node = self.right_child.as_ref().ok_or(
             CalculationError::new("The right child of a divide node must be present to perform a calculation")
         )?;
-        Ok(left_node.calculate(Some(parameters))? / right_node.calculate(Some(parameters))?)
+        Ok(left_node.calculate_wrapped_nodes(parameters)? / right_node.calculate_wrapped_nodes(parameters)?)
     }
 }
 

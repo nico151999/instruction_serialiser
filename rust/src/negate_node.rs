@@ -12,7 +12,7 @@ impl GenericNode<LogicalType> for NegateNode {
         let node = self.child.as_ref().ok_or(
             CalculationError::new("The child of a negate node must be present to perform a calculation")
         )?;
-        Ok(!node.calculate(Some(parameters))?)
+        Ok(!node.calculate_wrapped_nodes(parameters)?)
     }
 }
 

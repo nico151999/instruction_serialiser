@@ -12,14 +12,14 @@ impl GenericNode<LogicalType> for LogicalIfElseNode {
         let condition = self.condition.as_ref().ok_or(
             CalculationError::new("The condition of a logical if-else-node must be present to perform a calculation")
         )?;
-        if condition.calculate(Some(parameters))? {
+        if condition.calculate_wrapped_nodes(parameters)? {
             Ok(self.r#if.as_ref().ok_or(
                 CalculationError::new("The if child node of a logical if-else-node node must be present to perform a calculation")
-            )?.calculate(Some(parameters))?)
+            )?.calculate_wrapped_nodes(parameters)?)
         } else {
             Ok(self.r#else.as_ref().ok_or(
                 CalculationError::new("The else child node of a logical if-else-node node must be present to perform a calculation")
-            )?.calculate(Some(parameters))?)
+            )?.calculate_wrapped_nodes(parameters)?)
         }
     }
 }
