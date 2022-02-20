@@ -1,6 +1,6 @@
 [package]
 name = "instruction_serialiser"
-version = "0.0.2"
+version = "0.0.3"
 edition = "2021"
 license = "Apache-2.0"
 description = "This package helps developers serialising calculation instructions for reusing or archiving them."
