@@ -29,9 +29,9 @@ mod serialisation_error;
 mod arithmetic_result_node_wrapper;
 mod logical_result_node_wrapper;
 mod arithmetic_if_else_node;
+mod logical_if_else_node;
 
 pub mod instruction_wrapper;
-mod logical_if_else_node;
 
 pub use instruction_wrapper::InstructionWrapper;
 
