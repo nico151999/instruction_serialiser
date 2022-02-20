@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'dart:typed_data';
 
+import 'logical_result_nodes.dart';
 import 'arithmetic_type.dart';
 import 'calculation_exception.dart';
 import 'instruction_serialiser/instruction_serialiser.pbserver.dart';
@@ -9,6 +10,8 @@ extension ARNW on ArithmeticResultNodeWrapper {
   ArithmeticType calculate(Map<String, dynamic> parameters) {
     if (this.hasAddNode()) {
       return this.ensureAddNode().calculate(parameters);
+    } else if (this.hasIfElseNode()) {
+      return this.ensureIfElseNode().calculate(parameters);
     } else if (this.hasDivideNode()) {
       return this.ensureDivideNode().calculate(parameters);
     } else if (this.hasLogarithmNode()) {
@@ -119,6 +122,14 @@ extension on AddNode {
   ArithmeticType calculate(Map<String, dynamic> parameters) {
     return this.leftChild.calculate(parameters) +
         this.rightChild.calculate(parameters);
+  }
+}
+
+extension on ArithmeticIfElseNode {
+  ArithmeticType calculate(Map<String, dynamic> parameters) {
+    return this.condition.calculate(parameters) ?
+        this.if_2.calculate(parameters) :
+        this.else_3.calculate(parameters);
   }
 }
 

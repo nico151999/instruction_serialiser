@@ -21,6 +21,7 @@ message ArithmeticResultNodeWrapper {
     LogarithmNode logarithm_node = 7;
     PowerNode power_node = 8;
     ModuloNode modulo_node = 9;
+    ArithmeticIfElseNode if_else_node = 10;
   }
 }
 
@@ -33,12 +34,19 @@ message LogicalResultNodeWrapper {
     OrNode or_node = 5;
     XorNode xor_node = 6;
     LogicalVariableNode variable_node = 7;
+    LogicalIfElseNode if_else_node = 8;
   }
 }
 
 message AddNode {
   ArithmeticResultNodeWrapper left_child = 1;
   ArithmeticResultNodeWrapper right_child = 2;
+}
+
+message ArithmeticIfElseNode {
+  LogicalResultNodeWrapper condition = 1;
+  ArithmeticResultNodeWrapper if = 2;
+  ArithmeticResultNodeWrapper else = 3;
 }
 
 message DivideNode {
@@ -64,6 +72,12 @@ message LogarithmNode {
 message PowerNode {
   ArithmeticResultNodeWrapper left_child = 1; // the base
   ArithmeticResultNodeWrapper right_child = 2; // the exponent
+}
+
+message LogicalIfElseNode {
+  LogicalResultNodeWrapper condition = 1;
+  LogicalResultNodeWrapper if = 2;
+  LogicalResultNodeWrapper else = 3;
 }
 
 message ModuloNode {

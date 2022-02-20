@@ -21,7 +21,8 @@ impl NodeWrapper<LogicalType> for LogicalResultNodeWrapper {
             Node::NegateNode(node) => node.calculate(parameters),
             Node::OrNode(node) => node.calculate(parameters),
             Node::XorNode(node) => node.calculate(parameters),
-            Node::VariableNode(node) => node.calculate(parameters)
+            Node::VariableNode(node) => node.calculate(parameters),
+            Node::IfElseNode(node) => node.calculate(parameters)
         }
     }
     fn serialise(self) -> Result<Vec<u8>, SerialisationError> {

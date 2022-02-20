@@ -24,10 +24,12 @@ impl ArithmeticResultNodeWrapper {
         LogicalResultNodeWrapper{
             node: Some(
                 Node::EqualNode(
-                    EqualNode{
-                        left_child: Some(self),
-                        right_child: Some(node)
-                    }
+                    Box::new(
+                        EqualNode{
+                            left_child: Some(Box::new(self)),
+                            right_child: Some(Box::new(node))
+                        }
+                    )
                 )
             )
         }

@@ -99,6 +99,7 @@ enum ArithmeticResultNodeWrapper_Node {
   logarithmNode, 
   powerNode, 
   moduloNode, 
+  ifElseNode, 
   notSet
 }
 
@@ -113,10 +114,11 @@ class ArithmeticResultNodeWrapper extends $pb.GeneratedMessage {
     7 : ArithmeticResultNodeWrapper_Node.logarithmNode,
     8 : ArithmeticResultNodeWrapper_Node.powerNode,
     9 : ArithmeticResultNodeWrapper_Node.moduloNode,
+    10 : ArithmeticResultNodeWrapper_Node.ifElseNode,
     0 : ArithmeticResultNodeWrapper_Node.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ArithmeticResultNodeWrapper', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'instruction_serialiser'), createEmptyInstance: create)
-    ..oo(0, [1, 2, 3, 4, 5, 6, 7, 8, 9])
+    ..oo(0, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
     ..aOM<AddNode>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'addNode', subBuilder: AddNode.create)
     ..aOM<DivideNode>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'divideNode', subBuilder: DivideNode.create)
     ..aOM<MultiplyNode>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'multiplyNode', subBuilder: MultiplyNode.create)
@@ -126,6 +128,7 @@ class ArithmeticResultNodeWrapper extends $pb.GeneratedMessage {
     ..aOM<LogarithmNode>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'logarithmNode', subBuilder: LogarithmNode.create)
     ..aOM<PowerNode>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'powerNode', subBuilder: PowerNode.create)
     ..aOM<ModuloNode>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'moduloNode', subBuilder: ModuloNode.create)
+    ..aOM<ArithmeticIfElseNode>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ifElseNode', subBuilder: ArithmeticIfElseNode.create)
     ..hasRequiredFields = false
   ;
 
@@ -140,6 +143,7 @@ class ArithmeticResultNodeWrapper extends $pb.GeneratedMessage {
     LogarithmNode? logarithmNode,
     PowerNode? powerNode,
     ModuloNode? moduloNode,
+    ArithmeticIfElseNode? ifElseNode,
   }) {
     final _result = create();
     if (addNode != null) {
@@ -168,6 +172,9 @@ class ArithmeticResultNodeWrapper extends $pb.GeneratedMessage {
     }
     if (moduloNode != null) {
       _result.moduloNode = moduloNode;
+    }
+    if (ifElseNode != null) {
+      _result.ifElseNode = ifElseNode;
     }
     return _result;
   }
@@ -293,6 +300,17 @@ class ArithmeticResultNodeWrapper extends $pb.GeneratedMessage {
   void clearModuloNode() => clearField(9);
   @$pb.TagNumber(9)
   ModuloNode ensureModuloNode() => $_ensure(8);
+
+  @$pb.TagNumber(10)
+  ArithmeticIfElseNode get ifElseNode => $_getN(9);
+  @$pb.TagNumber(10)
+  set ifElseNode(ArithmeticIfElseNode v) { setField(10, v); }
+  @$pb.TagNumber(10)
+  $core.bool hasIfElseNode() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearIfElseNode() => clearField(10);
+  @$pb.TagNumber(10)
+  ArithmeticIfElseNode ensureIfElseNode() => $_ensure(9);
 }
 
 enum LogicalResultNodeWrapper_Node {
@@ -303,6 +321,7 @@ enum LogicalResultNodeWrapper_Node {
   orNode, 
   xorNode, 
   variableNode, 
+  ifElseNode, 
   notSet
 }
 
@@ -315,10 +334,11 @@ class LogicalResultNodeWrapper extends $pb.GeneratedMessage {
     5 : LogicalResultNodeWrapper_Node.orNode,
     6 : LogicalResultNodeWrapper_Node.xorNode,
     7 : LogicalResultNodeWrapper_Node.variableNode,
+    8 : LogicalResultNodeWrapper_Node.ifElseNode,
     0 : LogicalResultNodeWrapper_Node.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'LogicalResultNodeWrapper', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'instruction_serialiser'), createEmptyInstance: create)
-    ..oo(0, [1, 2, 3, 4, 5, 6, 7])
+    ..oo(0, [1, 2, 3, 4, 5, 6, 7, 8])
     ..aOM<EqualNode>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'equalNode', subBuilder: EqualNode.create)
     ..aOM<AndNode>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'andNode', subBuilder: AndNode.create)
     ..aOM<BoolNode>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'boolNode', subBuilder: BoolNode.create)
@@ -326,6 +346,7 @@ class LogicalResultNodeWrapper extends $pb.GeneratedMessage {
     ..aOM<OrNode>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'orNode', subBuilder: OrNode.create)
     ..aOM<XorNode>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'xorNode', subBuilder: XorNode.create)
     ..aOM<LogicalVariableNode>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'variableNode', subBuilder: LogicalVariableNode.create)
+    ..aOM<LogicalIfElseNode>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ifElseNode', subBuilder: LogicalIfElseNode.create)
     ..hasRequiredFields = false
   ;
 
@@ -338,6 +359,7 @@ class LogicalResultNodeWrapper extends $pb.GeneratedMessage {
     OrNode? orNode,
     XorNode? xorNode,
     LogicalVariableNode? variableNode,
+    LogicalIfElseNode? ifElseNode,
   }) {
     final _result = create();
     if (equalNode != null) {
@@ -360,6 +382,9 @@ class LogicalResultNodeWrapper extends $pb.GeneratedMessage {
     }
     if (variableNode != null) {
       _result.variableNode = variableNode;
+    }
+    if (ifElseNode != null) {
+      _result.ifElseNode = ifElseNode;
     }
     return _result;
   }
@@ -463,6 +488,17 @@ class LogicalResultNodeWrapper extends $pb.GeneratedMessage {
   void clearVariableNode() => clearField(7);
   @$pb.TagNumber(7)
   LogicalVariableNode ensureVariableNode() => $_ensure(6);
+
+  @$pb.TagNumber(8)
+  LogicalIfElseNode get ifElseNode => $_getN(7);
+  @$pb.TagNumber(8)
+  set ifElseNode(LogicalIfElseNode v) { setField(8, v); }
+  @$pb.TagNumber(8)
+  $core.bool hasIfElseNode() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearIfElseNode() => clearField(8);
+  @$pb.TagNumber(8)
+  LogicalIfElseNode ensureIfElseNode() => $_ensure(7);
 }
 
 class AddNode extends $pb.GeneratedMessage {
@@ -528,6 +564,87 @@ class AddNode extends $pb.GeneratedMessage {
   void clearRightChild() => clearField(2);
   @$pb.TagNumber(2)
   ArithmeticResultNodeWrapper ensureRightChild() => $_ensure(1);
+}
+
+class ArithmeticIfElseNode extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ArithmeticIfElseNode', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'instruction_serialiser'), createEmptyInstance: create)
+    ..aOM<LogicalResultNodeWrapper>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'condition', subBuilder: LogicalResultNodeWrapper.create)
+    ..aOM<ArithmeticResultNodeWrapper>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'if', subBuilder: ArithmeticResultNodeWrapper.create)
+    ..aOM<ArithmeticResultNodeWrapper>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'else', subBuilder: ArithmeticResultNodeWrapper.create)
+    ..hasRequiredFields = false
+  ;
+
+  ArithmeticIfElseNode._() : super();
+  factory ArithmeticIfElseNode({
+    LogicalResultNodeWrapper? condition,
+    ArithmeticResultNodeWrapper? if_2,
+    ArithmeticResultNodeWrapper? else_3,
+  }) {
+    final _result = create();
+    if (condition != null) {
+      _result.condition = condition;
+    }
+    if (if_2 != null) {
+      _result.if_2 = if_2;
+    }
+    if (else_3 != null) {
+      _result.else_3 = else_3;
+    }
+    return _result;
+  }
+  factory ArithmeticIfElseNode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ArithmeticIfElseNode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ArithmeticIfElseNode clone() => ArithmeticIfElseNode()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ArithmeticIfElseNode copyWith(void Function(ArithmeticIfElseNode) updates) => super.copyWith((message) => updates(message as ArithmeticIfElseNode)) as ArithmeticIfElseNode; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static ArithmeticIfElseNode create() => ArithmeticIfElseNode._();
+  ArithmeticIfElseNode createEmptyInstance() => create();
+  static $pb.PbList<ArithmeticIfElseNode> createRepeated() => $pb.PbList<ArithmeticIfElseNode>();
+  @$core.pragma('dart2js:noInline')
+  static ArithmeticIfElseNode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ArithmeticIfElseNode>(create);
+  static ArithmeticIfElseNode? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  LogicalResultNodeWrapper get condition => $_getN(0);
+  @$pb.TagNumber(1)
+  set condition(LogicalResultNodeWrapper v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCondition() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCondition() => clearField(1);
+  @$pb.TagNumber(1)
+  LogicalResultNodeWrapper ensureCondition() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  ArithmeticResultNodeWrapper get if_2 => $_getN(1);
+  @$pb.TagNumber(2)
+  set if_2(ArithmeticResultNodeWrapper v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasIf_2() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearIf_2() => clearField(2);
+  @$pb.TagNumber(2)
+  ArithmeticResultNodeWrapper ensureIf_2() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  ArithmeticResultNodeWrapper get else_3 => $_getN(2);
+  @$pb.TagNumber(3)
+  set else_3(ArithmeticResultNodeWrapper v) { setField(3, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasElse_3() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearElse_3() => clearField(3);
+  @$pb.TagNumber(3)
+  ArithmeticResultNodeWrapper ensureElse_3() => $_ensure(2);
 }
 
 class DivideNode extends $pb.GeneratedMessage {
@@ -853,6 +970,87 @@ class PowerNode extends $pb.GeneratedMessage {
   void clearRightChild() => clearField(2);
   @$pb.TagNumber(2)
   ArithmeticResultNodeWrapper ensureRightChild() => $_ensure(1);
+}
+
+class LogicalIfElseNode extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'LogicalIfElseNode', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'instruction_serialiser'), createEmptyInstance: create)
+    ..aOM<LogicalResultNodeWrapper>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'condition', subBuilder: LogicalResultNodeWrapper.create)
+    ..aOM<LogicalResultNodeWrapper>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'if', subBuilder: LogicalResultNodeWrapper.create)
+    ..aOM<LogicalResultNodeWrapper>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'else', subBuilder: LogicalResultNodeWrapper.create)
+    ..hasRequiredFields = false
+  ;
+
+  LogicalIfElseNode._() : super();
+  factory LogicalIfElseNode({
+    LogicalResultNodeWrapper? condition,
+    LogicalResultNodeWrapper? if_2,
+    LogicalResultNodeWrapper? else_3,
+  }) {
+    final _result = create();
+    if (condition != null) {
+      _result.condition = condition;
+    }
+    if (if_2 != null) {
+      _result.if_2 = if_2;
+    }
+    if (else_3 != null) {
+      _result.else_3 = else_3;
+    }
+    return _result;
+  }
+  factory LogicalIfElseNode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory LogicalIfElseNode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  LogicalIfElseNode clone() => LogicalIfElseNode()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  LogicalIfElseNode copyWith(void Function(LogicalIfElseNode) updates) => super.copyWith((message) => updates(message as LogicalIfElseNode)) as LogicalIfElseNode; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static LogicalIfElseNode create() => LogicalIfElseNode._();
+  LogicalIfElseNode createEmptyInstance() => create();
+  static $pb.PbList<LogicalIfElseNode> createRepeated() => $pb.PbList<LogicalIfElseNode>();
+  @$core.pragma('dart2js:noInline')
+  static LogicalIfElseNode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<LogicalIfElseNode>(create);
+  static LogicalIfElseNode? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  LogicalResultNodeWrapper get condition => $_getN(0);
+  @$pb.TagNumber(1)
+  set condition(LogicalResultNodeWrapper v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCondition() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCondition() => clearField(1);
+  @$pb.TagNumber(1)
+  LogicalResultNodeWrapper ensureCondition() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  LogicalResultNodeWrapper get if_2 => $_getN(1);
+  @$pb.TagNumber(2)
+  set if_2(LogicalResultNodeWrapper v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasIf_2() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearIf_2() => clearField(2);
+  @$pb.TagNumber(2)
+  LogicalResultNodeWrapper ensureIf_2() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  LogicalResultNodeWrapper get else_3 => $_getN(2);
+  @$pb.TagNumber(3)
+  set else_3(LogicalResultNodeWrapper v) { setField(3, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasElse_3() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearElse_3() => clearField(3);
+  @$pb.TagNumber(3)
+  LogicalResultNodeWrapper ensureElse_3() => $_ensure(2);
 }
 
 class ModuloNode extends $pb.GeneratedMessage {

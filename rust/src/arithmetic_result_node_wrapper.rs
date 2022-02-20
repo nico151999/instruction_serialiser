@@ -3,7 +3,8 @@ use prost::{EncodeError, Message};
 use crate::arithmetic_type::ArithmeticType;
 use crate::generic_node::GenericNode;
 use crate::calculation_error::CalculationError;
-use crate::instruction_serialiser::{arithmetic_result_node_wrapper, ArithmeticResultNodeWrapper, InstructionWrapper};
+use crate::instruction_serialiser::{ArithmeticResultNodeWrapper, InstructionWrapper};
+use crate::instruction_serialiser::arithmetic_result_node_wrapper::Node;
 use crate::instruction_serialiser::instruction_wrapper::Wrapper;
 use crate::node_wrapper::NodeWrapper;
 use crate::parameter::Parameter;
@@ -14,15 +15,16 @@ impl NodeWrapper<ArithmeticType> for ArithmeticResultNodeWrapper {
         match self.node.as_ref().ok_or(
             CalculationError::new("An arithmetic result node wrapper does unexpectedly not contain a node")
         )? {
-            arithmetic_result_node_wrapper::Node::AddNode(node) => node.calculate(parameters),
-            arithmetic_result_node_wrapper::Node::DivideNode(node) => node.calculate(parameters),
-            arithmetic_result_node_wrapper::Node::MultiplyNode(node) => node.calculate(parameters),
-            arithmetic_result_node_wrapper::Node::NumberNode(node) => node.calculate(parameters),
-            arithmetic_result_node_wrapper::Node::SubtractNode(node) => node.calculate(parameters),
-            arithmetic_result_node_wrapper::Node::VariableNode(node) => node.calculate(parameters),
-            arithmetic_result_node_wrapper::Node::LogarithmNode(node) => node.calculate(parameters),
-            arithmetic_result_node_wrapper::Node::PowerNode(node) => node.calculate(parameters),
-            arithmetic_result_node_wrapper::Node::ModuloNode(node) => node.calculate(parameters)
+            Node::AddNode(node) => node.calculate(parameters),
+            Node::DivideNode(node) => node.calculate(parameters),
+            Node::MultiplyNode(node) => node.calculate(parameters),
+            Node::NumberNode(node) => node.calculate(parameters),
+            Node::SubtractNode(node) => node.calculate(parameters),
+            Node::VariableNode(node) => node.calculate(parameters),
+            Node::LogarithmNode(node) => node.calculate(parameters),
+            Node::PowerNode(node) => node.calculate(parameters),
+            Node::ModuloNode(node) => node.calculate(parameters),
+            Node::IfElseNode(node) => {node.calculate(parameters)}
         }
     }
     fn serialise(self) -> Result<Vec<u8>, SerialisationError> {

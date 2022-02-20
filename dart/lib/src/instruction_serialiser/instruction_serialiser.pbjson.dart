@@ -35,6 +35,7 @@ const ArithmeticResultNodeWrapper$json = const {
     const {'1': 'logarithm_node', '3': 7, '4': 1, '5': 11, '6': '.instruction_serialiser.LogarithmNode', '9': 0, '10': 'logarithmNode'},
     const {'1': 'power_node', '3': 8, '4': 1, '5': 11, '6': '.instruction_serialiser.PowerNode', '9': 0, '10': 'powerNode'},
     const {'1': 'modulo_node', '3': 9, '4': 1, '5': 11, '6': '.instruction_serialiser.ModuloNode', '9': 0, '10': 'moduloNode'},
+    const {'1': 'if_else_node', '3': 10, '4': 1, '5': 11, '6': '.instruction_serialiser.ArithmeticIfElseNode', '9': 0, '10': 'ifElseNode'},
   ],
   '8': const [
     const {'1': 'node'},
@@ -42,7 +43,7 @@ const ArithmeticResultNodeWrapper$json = const {
 };
 
 /// Descriptor for `ArithmeticResultNodeWrapper`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List arithmeticResultNodeWrapperDescriptor = $convert.base64Decode('ChtBcml0aG1ldGljUmVzdWx0Tm9kZVdyYXBwZXISPAoIYWRkX25vZGUYASABKAsyHy5pbnN0cnVjdGlvbl9zZXJpYWxpc2VyLkFkZE5vZGVIAFIHYWRkTm9kZRJFCgtkaXZpZGVfbm9kZRgCIAEoCzIiLmluc3RydWN0aW9uX3NlcmlhbGlzZXIuRGl2aWRlTm9kZUgAUgpkaXZpZGVOb2RlEksKDW11bHRpcGx5X25vZGUYAyABKAsyJC5pbnN0cnVjdGlvbl9zZXJpYWxpc2VyLk11bHRpcGx5Tm9kZUgAUgxtdWx0aXBseU5vZGUSRQoLbnVtYmVyX25vZGUYBCABKAsyIi5pbnN0cnVjdGlvbl9zZXJpYWxpc2VyLk51bWJlck5vZGVIAFIKbnVtYmVyTm9kZRJLCg1zdWJ0cmFjdF9ub2RlGAUgASgLMiQuaW5zdHJ1Y3Rpb25fc2VyaWFsaXNlci5TdWJ0cmFjdE5vZGVIAFIMc3VidHJhY3ROb2RlElUKDXZhcmlhYmxlX25vZGUYBiABKAsyLi5pbnN0cnVjdGlvbl9zZXJpYWxpc2VyLkFyaXRobWV0aWNWYXJpYWJsZU5vZGVIAFIMdmFyaWFibGVOb2RlEk4KDmxvZ2FyaXRobV9ub2RlGAcgASgLMiUuaW5zdHJ1Y3Rpb25fc2VyaWFsaXNlci5Mb2dhcml0aG1Ob2RlSABSDWxvZ2FyaXRobU5vZGUSQgoKcG93ZXJfbm9kZRgIIAEoCzIhLmluc3RydWN0aW9uX3NlcmlhbGlzZXIuUG93ZXJOb2RlSABSCXBvd2VyTm9kZRJFCgttb2R1bG9fbm9kZRgJIAEoCzIiLmluc3RydWN0aW9uX3NlcmlhbGlzZXIuTW9kdWxvTm9kZUgAUgptb2R1bG9Ob2RlQgYKBG5vZGU=');
+final $typed_data.Uint8List arithmeticResultNodeWrapperDescriptor = $convert.base64Decode('ChtBcml0aG1ldGljUmVzdWx0Tm9kZVdyYXBwZXISPAoIYWRkX25vZGUYASABKAsyHy5pbnN0cnVjdGlvbl9zZXJpYWxpc2VyLkFkZE5vZGVIAFIHYWRkTm9kZRJFCgtkaXZpZGVfbm9kZRgCIAEoCzIiLmluc3RydWN0aW9uX3NlcmlhbGlzZXIuRGl2aWRlTm9kZUgAUgpkaXZpZGVOb2RlEksKDW11bHRpcGx5X25vZGUYAyABKAsyJC5pbnN0cnVjdGlvbl9zZXJpYWxpc2VyLk11bHRpcGx5Tm9kZUgAUgxtdWx0aXBseU5vZGUSRQoLbnVtYmVyX25vZGUYBCABKAsyIi5pbnN0cnVjdGlvbl9zZXJpYWxpc2VyLk51bWJlck5vZGVIAFIKbnVtYmVyTm9kZRJLCg1zdWJ0cmFjdF9ub2RlGAUgASgLMiQuaW5zdHJ1Y3Rpb25fc2VyaWFsaXNlci5TdWJ0cmFjdE5vZGVIAFIMc3VidHJhY3ROb2RlElUKDXZhcmlhYmxlX25vZGUYBiABKAsyLi5pbnN0cnVjdGlvbl9zZXJpYWxpc2VyLkFyaXRobWV0aWNWYXJpYWJsZU5vZGVIAFIMdmFyaWFibGVOb2RlEk4KDmxvZ2FyaXRobV9ub2RlGAcgASgLMiUuaW5zdHJ1Y3Rpb25fc2VyaWFsaXNlci5Mb2dhcml0aG1Ob2RlSABSDWxvZ2FyaXRobU5vZGUSQgoKcG93ZXJfbm9kZRgIIAEoCzIhLmluc3RydWN0aW9uX3NlcmlhbGlzZXIuUG93ZXJOb2RlSABSCXBvd2VyTm9kZRJFCgttb2R1bG9fbm9kZRgJIAEoCzIiLmluc3RydWN0aW9uX3NlcmlhbGlzZXIuTW9kdWxvTm9kZUgAUgptb2R1bG9Ob2RlElAKDGlmX2Vsc2Vfbm9kZRgKIAEoCzIsLmluc3RydWN0aW9uX3NlcmlhbGlzZXIuQXJpdGhtZXRpY0lmRWxzZU5vZGVIAFIKaWZFbHNlTm9kZUIGCgRub2Rl');
 @$core.Deprecated('Use logicalResultNodeWrapperDescriptor instead')
 const LogicalResultNodeWrapper$json = const {
   '1': 'LogicalResultNodeWrapper',
@@ -54,6 +55,7 @@ const LogicalResultNodeWrapper$json = const {
     const {'1': 'or_node', '3': 5, '4': 1, '5': 11, '6': '.instruction_serialiser.OrNode', '9': 0, '10': 'orNode'},
     const {'1': 'xor_node', '3': 6, '4': 1, '5': 11, '6': '.instruction_serialiser.XorNode', '9': 0, '10': 'xorNode'},
     const {'1': 'variable_node', '3': 7, '4': 1, '5': 11, '6': '.instruction_serialiser.LogicalVariableNode', '9': 0, '10': 'variableNode'},
+    const {'1': 'if_else_node', '3': 8, '4': 1, '5': 11, '6': '.instruction_serialiser.LogicalIfElseNode', '9': 0, '10': 'ifElseNode'},
   ],
   '8': const [
     const {'1': 'node'},
@@ -61,7 +63,7 @@ const LogicalResultNodeWrapper$json = const {
 };
 
 /// Descriptor for `LogicalResultNodeWrapper`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List logicalResultNodeWrapperDescriptor = $convert.base64Decode('ChhMb2dpY2FsUmVzdWx0Tm9kZVdyYXBwZXISQgoKZXF1YWxfbm9kZRgBIAEoCzIhLmluc3RydWN0aW9uX3NlcmlhbGlzZXIuRXF1YWxOb2RlSABSCWVxdWFsTm9kZRI8CghhbmRfbm9kZRgCIAEoCzIfLmluc3RydWN0aW9uX3NlcmlhbGlzZXIuQW5kTm9kZUgAUgdhbmROb2RlEj8KCWJvb2xfbm9kZRgDIAEoCzIgLmluc3RydWN0aW9uX3NlcmlhbGlzZXIuQm9vbE5vZGVIAFIIYm9vbE5vZGUSRQoLbmVnYXRlX25vZGUYBCABKAsyIi5pbnN0cnVjdGlvbl9zZXJpYWxpc2VyLk5lZ2F0ZU5vZGVIAFIKbmVnYXRlTm9kZRI5Cgdvcl9ub2RlGAUgASgLMh4uaW5zdHJ1Y3Rpb25fc2VyaWFsaXNlci5Pck5vZGVIAFIGb3JOb2RlEjwKCHhvcl9ub2RlGAYgASgLMh8uaW5zdHJ1Y3Rpb25fc2VyaWFsaXNlci5Yb3JOb2RlSABSB3hvck5vZGUSUgoNdmFyaWFibGVfbm9kZRgHIAEoCzIrLmluc3RydWN0aW9uX3NlcmlhbGlzZXIuTG9naWNhbFZhcmlhYmxlTm9kZUgAUgx2YXJpYWJsZU5vZGVCBgoEbm9kZQ==');
+final $typed_data.Uint8List logicalResultNodeWrapperDescriptor = $convert.base64Decode('ChhMb2dpY2FsUmVzdWx0Tm9kZVdyYXBwZXISQgoKZXF1YWxfbm9kZRgBIAEoCzIhLmluc3RydWN0aW9uX3NlcmlhbGlzZXIuRXF1YWxOb2RlSABSCWVxdWFsTm9kZRI8CghhbmRfbm9kZRgCIAEoCzIfLmluc3RydWN0aW9uX3NlcmlhbGlzZXIuQW5kTm9kZUgAUgdhbmROb2RlEj8KCWJvb2xfbm9kZRgDIAEoCzIgLmluc3RydWN0aW9uX3NlcmlhbGlzZXIuQm9vbE5vZGVIAFIIYm9vbE5vZGUSRQoLbmVnYXRlX25vZGUYBCABKAsyIi5pbnN0cnVjdGlvbl9zZXJpYWxpc2VyLk5lZ2F0ZU5vZGVIAFIKbmVnYXRlTm9kZRI5Cgdvcl9ub2RlGAUgASgLMh4uaW5zdHJ1Y3Rpb25fc2VyaWFsaXNlci5Pck5vZGVIAFIGb3JOb2RlEjwKCHhvcl9ub2RlGAYgASgLMh8uaW5zdHJ1Y3Rpb25fc2VyaWFsaXNlci5Yb3JOb2RlSABSB3hvck5vZGUSUgoNdmFyaWFibGVfbm9kZRgHIAEoCzIrLmluc3RydWN0aW9uX3NlcmlhbGlzZXIuTG9naWNhbFZhcmlhYmxlTm9kZUgAUgx2YXJpYWJsZU5vZGUSTQoMaWZfZWxzZV9ub2RlGAggASgLMikuaW5zdHJ1Y3Rpb25fc2VyaWFsaXNlci5Mb2dpY2FsSWZFbHNlTm9kZUgAUgppZkVsc2VOb2RlQgYKBG5vZGU=');
 @$core.Deprecated('Use addNodeDescriptor instead')
 const AddNode$json = const {
   '1': 'AddNode',
@@ -73,6 +75,18 @@ const AddNode$json = const {
 
 /// Descriptor for `AddNode`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List addNodeDescriptor = $convert.base64Decode('CgdBZGROb2RlElIKCmxlZnRfY2hpbGQYASABKAsyMy5pbnN0cnVjdGlvbl9zZXJpYWxpc2VyLkFyaXRobWV0aWNSZXN1bHROb2RlV3JhcHBlclIJbGVmdENoaWxkElQKC3JpZ2h0X2NoaWxkGAIgASgLMjMuaW5zdHJ1Y3Rpb25fc2VyaWFsaXNlci5Bcml0aG1ldGljUmVzdWx0Tm9kZVdyYXBwZXJSCnJpZ2h0Q2hpbGQ=');
+@$core.Deprecated('Use arithmeticIfElseNodeDescriptor instead')
+const ArithmeticIfElseNode$json = const {
+  '1': 'ArithmeticIfElseNode',
+  '2': const [
+    const {'1': 'condition', '3': 1, '4': 1, '5': 11, '6': '.instruction_serialiser.LogicalResultNodeWrapper', '10': 'condition'},
+    const {'1': 'if', '3': 2, '4': 1, '5': 11, '6': '.instruction_serialiser.ArithmeticResultNodeWrapper', '10': 'if'},
+    const {'1': 'else', '3': 3, '4': 1, '5': 11, '6': '.instruction_serialiser.ArithmeticResultNodeWrapper', '10': 'else'},
+  ],
+};
+
+/// Descriptor for `ArithmeticIfElseNode`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List arithmeticIfElseNodeDescriptor = $convert.base64Decode('ChRBcml0aG1ldGljSWZFbHNlTm9kZRJOCgljb25kaXRpb24YASABKAsyMC5pbnN0cnVjdGlvbl9zZXJpYWxpc2VyLkxvZ2ljYWxSZXN1bHROb2RlV3JhcHBlclIJY29uZGl0aW9uEkMKAmlmGAIgASgLMjMuaW5zdHJ1Y3Rpb25fc2VyaWFsaXNlci5Bcml0aG1ldGljUmVzdWx0Tm9kZVdyYXBwZXJSAmlmEkcKBGVsc2UYAyABKAsyMy5pbnN0cnVjdGlvbl9zZXJpYWxpc2VyLkFyaXRobWV0aWNSZXN1bHROb2RlV3JhcHBlclIEZWxzZQ==');
 @$core.Deprecated('Use divideNodeDescriptor instead')
 const DivideNode$json = const {
   '1': 'DivideNode',
@@ -128,6 +142,18 @@ const PowerNode$json = const {
 
 /// Descriptor for `PowerNode`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List powerNodeDescriptor = $convert.base64Decode('CglQb3dlck5vZGUSUgoKbGVmdF9jaGlsZBgBIAEoCzIzLmluc3RydWN0aW9uX3NlcmlhbGlzZXIuQXJpdGhtZXRpY1Jlc3VsdE5vZGVXcmFwcGVyUglsZWZ0Q2hpbGQSVAoLcmlnaHRfY2hpbGQYAiABKAsyMy5pbnN0cnVjdGlvbl9zZXJpYWxpc2VyLkFyaXRobWV0aWNSZXN1bHROb2RlV3JhcHBlclIKcmlnaHRDaGlsZA==');
+@$core.Deprecated('Use logicalIfElseNodeDescriptor instead')
+const LogicalIfElseNode$json = const {
+  '1': 'LogicalIfElseNode',
+  '2': const [
+    const {'1': 'condition', '3': 1, '4': 1, '5': 11, '6': '.instruction_serialiser.LogicalResultNodeWrapper', '10': 'condition'},
+    const {'1': 'if', '3': 2, '4': 1, '5': 11, '6': '.instruction_serialiser.LogicalResultNodeWrapper', '10': 'if'},
+    const {'1': 'else', '3': 3, '4': 1, '5': 11, '6': '.instruction_serialiser.LogicalResultNodeWrapper', '10': 'else'},
+  ],
+};
+
+/// Descriptor for `LogicalIfElseNode`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List logicalIfElseNodeDescriptor = $convert.base64Decode('ChFMb2dpY2FsSWZFbHNlTm9kZRJOCgljb25kaXRpb24YASABKAsyMC5pbnN0cnVjdGlvbl9zZXJpYWxpc2VyLkxvZ2ljYWxSZXN1bHROb2RlV3JhcHBlclIJY29uZGl0aW9uEkAKAmlmGAIgASgLMjAuaW5zdHJ1Y3Rpb25fc2VyaWFsaXNlci5Mb2dpY2FsUmVzdWx0Tm9kZVdyYXBwZXJSAmlmEkQKBGVsc2UYAyABKAsyMC5pbnN0cnVjdGlvbl9zZXJpYWxpc2VyLkxvZ2ljYWxSZXN1bHROb2RlV3JhcHBlclIEZWxzZQ==');
 @$core.Deprecated('Use moduloNodeDescriptor instead')
 const ModuloNode$json = const {
   '1': 'ModuloNode',

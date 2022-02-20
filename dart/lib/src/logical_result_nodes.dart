@@ -41,6 +41,30 @@ extension LRNW on LogicalResultNodeWrapper {
     );
   }
 
+  ArithmeticResultNodeWrapper arithmeticIfElse(
+      ArithmeticResultNodeWrapper ifNode,
+      ArithmeticResultNodeWrapper elseNode) {
+    return ArithmeticResultNodeWrapper(
+        ifElseNode: ArithmeticIfElseNode(
+            condition: this,
+            if_2: ifNode,
+            else_3: elseNode
+        )
+    );
+  }
+
+  LogicalResultNodeWrapper logicalIfElse(
+      LogicalResultNodeWrapper ifNode,
+      LogicalResultNodeWrapper elseNode) {
+    return LogicalResultNodeWrapper(
+        ifElseNode: LogicalIfElseNode(
+            condition: this,
+            if_2: ifNode,
+            else_3: elseNode
+        )
+    );
+  }
+
   LogicalResultNodeWrapper negate() {
     return LogicalResultNodeWrapper(
         negateNode: NegateNode(
@@ -97,6 +121,14 @@ extension on EqualNode {
   LogicalType calculate(Map<String, dynamic> parameters) {
     return this.leftChild.calculate(parameters) ==
         this.rightChild.calculate(parameters);
+  }
+}
+
+extension on LogicalIfElseNode {
+  LogicalType calculate(Map<String, dynamic> parameters) {
+    return this.condition.calculate(parameters) ?
+    this.if_2.calculate(parameters) :
+    this.else_3.calculate(parameters);
   }
 }
 
