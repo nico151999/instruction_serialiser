@@ -13,6 +13,8 @@ extension LRNW on LogicalResultNodeWrapper {
       return this.ensureBoolNode().calculate(parameters);
     } else if (this.hasEqualNode()) {
       return this.ensureEqualNode().calculate(parameters);
+    } else if (this.hasIfElseNode()) {
+      return this.ensureIfElseNode().calculate(parameters);
     } else if (this.hasNegateNode()) {
       return this.ensureNegateNode().calculate(parameters);
     } else if (this.hasOrNode()) {
