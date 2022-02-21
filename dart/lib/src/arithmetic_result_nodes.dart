@@ -10,10 +10,10 @@ extension ARNW on ArithmeticResultNodeWrapper {
   ArithmeticType calculate(Map<String, dynamic> parameters) {
     if (this.hasAddNode()) {
       return this.ensureAddNode().calculate(parameters);
-    } else if (this.hasIfElseNode()) {
-      return this.ensureIfElseNode().calculate(parameters);
     } else if (this.hasDivideNode()) {
       return this.ensureDivideNode().calculate(parameters);
+    } else if (this.hasIfElseNode()) {
+      return this.ensureIfElseNode().calculate(parameters);
     } else if (this.hasLogarithmNode()) {
       return this.ensureLogarithmNode().calculate(parameters);
     } else if (this.hasModuloNode()) {
