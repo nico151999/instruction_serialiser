@@ -35,6 +35,10 @@ message LogicalResultNodeWrapper {
     XorNode xor_node = 6;
     LogicalVariableNode variable_node = 7;
     LogicalIfElseNode if_else_node = 8;
+    GreaterThanNode greater_than_node = 9;
+    GreaterThanOrEqualNode greater_than_or_equal_node = 10;
+    SmallerThanNode smaller_than_node = 11;
+    SmallerThanOrEqualNode smaller_than_or_equal_node = 12;
   }
 }
 
@@ -49,17 +53,11 @@ message ArithmeticIfElseNode {
   ArithmeticResultNodeWrapper else = 3;
 }
 
+message ArithmeticVariableNode {
+  string variable_name = 1;
+}
+
 message DivideNode {
-  ArithmeticResultNodeWrapper left_child = 1;
-  ArithmeticResultNodeWrapper right_child = 2;
-}
-
-message MultiplyNode {
-  ArithmeticResultNodeWrapper left_child = 1;
-  ArithmeticResultNodeWrapper right_child = 2;
-}
-
-message SubtractNode {
   ArithmeticResultNodeWrapper left_child = 1;
   ArithmeticResultNodeWrapper right_child = 2;
 }
@@ -69,18 +67,12 @@ message LogarithmNode {
   ArithmeticResultNodeWrapper right_child = 2; // the base
 }
 
-message PowerNode {
-  ArithmeticResultNodeWrapper left_child = 1; // the base
-  ArithmeticResultNodeWrapper right_child = 2; // the exponent
-}
-
-message LogicalIfElseNode {
-  LogicalResultNodeWrapper condition = 1;
-  LogicalResultNodeWrapper if = 2;
-  LogicalResultNodeWrapper else = 3;
-}
-
 message ModuloNode {
+  ArithmeticResultNodeWrapper left_child = 1;
+  ArithmeticResultNodeWrapper right_child = 2;
+}
+
+message MultiplyNode {
   ArithmeticResultNodeWrapper left_child = 1;
   ArithmeticResultNodeWrapper right_child = 2;
 }
@@ -89,8 +81,14 @@ message NumberNode {
   double value = 1;
 }
 
-message ArithmeticVariableNode {
-  string variable_name = 1;
+message PowerNode {
+  ArithmeticResultNodeWrapper left_child = 1; // the base
+  ArithmeticResultNodeWrapper right_child = 2; // the exponent
+}
+
+message SubtractNode {
+  ArithmeticResultNodeWrapper left_child = 1;
+  ArithmeticResultNodeWrapper right_child = 2;
 }
 
 message AndNode {
@@ -98,11 +96,35 @@ message AndNode {
   LogicalResultNodeWrapper right_child = 2;
 }
 
+message BoolNode {
+  bool value = 1;
+}
+
 // The equal node compares arithmetic nodes only.
 // If you want to determine equality of logical nodes use Xor followed by a negation.
 message EqualNode {
   ArithmeticResultNodeWrapper left_child = 1;
   ArithmeticResultNodeWrapper right_child = 2;
+}
+
+message GreaterThanNode {
+  ArithmeticResultNodeWrapper left_child = 1;
+  ArithmeticResultNodeWrapper right_child = 2;
+}
+
+message GreaterThanOrEqualNode {
+  ArithmeticResultNodeWrapper left_child = 1;
+  ArithmeticResultNodeWrapper right_child = 2;
+}
+
+message LogicalIfElseNode {
+  LogicalResultNodeWrapper condition = 1;
+  LogicalResultNodeWrapper if = 2;
+  LogicalResultNodeWrapper else = 3;
+}
+
+message LogicalVariableNode {
+  string variable_name = 1;
 }
 
 message NegateNode {
@@ -114,15 +136,17 @@ message OrNode {
   LogicalResultNodeWrapper right_child = 2;
 }
 
+message SmallerThanNode {
+  ArithmeticResultNodeWrapper left_child = 1;
+  ArithmeticResultNodeWrapper right_child = 2;
+}
+
+message SmallerThanOrEqualNode {
+  ArithmeticResultNodeWrapper left_child = 1;
+  ArithmeticResultNodeWrapper right_child = 2;
+}
+
 message XorNode {
   LogicalResultNodeWrapper left_child = 1;
   LogicalResultNodeWrapper right_child = 2;
-}
-
-message BoolNode {
-  bool value = 1;
-}
-
-message LogicalVariableNode {
-  string variable_name = 1;
 }

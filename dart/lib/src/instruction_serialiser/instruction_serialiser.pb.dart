@@ -322,6 +322,10 @@ enum LogicalResultNodeWrapper_Node {
   xorNode, 
   variableNode, 
   ifElseNode, 
+  greaterThanNode, 
+  greaterThanOrEqualNode, 
+  smallerThanNode, 
+  smallerThanOrEqualNode, 
   notSet
 }
 
@@ -335,10 +339,14 @@ class LogicalResultNodeWrapper extends $pb.GeneratedMessage {
     6 : LogicalResultNodeWrapper_Node.xorNode,
     7 : LogicalResultNodeWrapper_Node.variableNode,
     8 : LogicalResultNodeWrapper_Node.ifElseNode,
+    9 : LogicalResultNodeWrapper_Node.greaterThanNode,
+    10 : LogicalResultNodeWrapper_Node.greaterThanOrEqualNode,
+    11 : LogicalResultNodeWrapper_Node.smallerThanNode,
+    12 : LogicalResultNodeWrapper_Node.smallerThanOrEqualNode,
     0 : LogicalResultNodeWrapper_Node.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'LogicalResultNodeWrapper', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'instruction_serialiser'), createEmptyInstance: create)
-    ..oo(0, [1, 2, 3, 4, 5, 6, 7, 8])
+    ..oo(0, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
     ..aOM<EqualNode>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'equalNode', subBuilder: EqualNode.create)
     ..aOM<AndNode>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'andNode', subBuilder: AndNode.create)
     ..aOM<BoolNode>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'boolNode', subBuilder: BoolNode.create)
@@ -347,6 +355,10 @@ class LogicalResultNodeWrapper extends $pb.GeneratedMessage {
     ..aOM<XorNode>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'xorNode', subBuilder: XorNode.create)
     ..aOM<LogicalVariableNode>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'variableNode', subBuilder: LogicalVariableNode.create)
     ..aOM<LogicalIfElseNode>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ifElseNode', subBuilder: LogicalIfElseNode.create)
+    ..aOM<GreaterThanNode>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'greaterThanNode', subBuilder: GreaterThanNode.create)
+    ..aOM<GreaterThanOrEqualNode>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'greaterThanOrEqualNode', subBuilder: GreaterThanOrEqualNode.create)
+    ..aOM<SmallerThanNode>(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'smallerThanNode', subBuilder: SmallerThanNode.create)
+    ..aOM<SmallerThanOrEqualNode>(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'smallerThanOrEqualNode', subBuilder: SmallerThanOrEqualNode.create)
     ..hasRequiredFields = false
   ;
 
@@ -360,6 +372,10 @@ class LogicalResultNodeWrapper extends $pb.GeneratedMessage {
     XorNode? xorNode,
     LogicalVariableNode? variableNode,
     LogicalIfElseNode? ifElseNode,
+    GreaterThanNode? greaterThanNode,
+    GreaterThanOrEqualNode? greaterThanOrEqualNode,
+    SmallerThanNode? smallerThanNode,
+    SmallerThanOrEqualNode? smallerThanOrEqualNode,
   }) {
     final _result = create();
     if (equalNode != null) {
@@ -385,6 +401,18 @@ class LogicalResultNodeWrapper extends $pb.GeneratedMessage {
     }
     if (ifElseNode != null) {
       _result.ifElseNode = ifElseNode;
+    }
+    if (greaterThanNode != null) {
+      _result.greaterThanNode = greaterThanNode;
+    }
+    if (greaterThanOrEqualNode != null) {
+      _result.greaterThanOrEqualNode = greaterThanOrEqualNode;
+    }
+    if (smallerThanNode != null) {
+      _result.smallerThanNode = smallerThanNode;
+    }
+    if (smallerThanOrEqualNode != null) {
+      _result.smallerThanOrEqualNode = smallerThanOrEqualNode;
     }
     return _result;
   }
@@ -499,6 +527,50 @@ class LogicalResultNodeWrapper extends $pb.GeneratedMessage {
   void clearIfElseNode() => clearField(8);
   @$pb.TagNumber(8)
   LogicalIfElseNode ensureIfElseNode() => $_ensure(7);
+
+  @$pb.TagNumber(9)
+  GreaterThanNode get greaterThanNode => $_getN(8);
+  @$pb.TagNumber(9)
+  set greaterThanNode(GreaterThanNode v) { setField(9, v); }
+  @$pb.TagNumber(9)
+  $core.bool hasGreaterThanNode() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearGreaterThanNode() => clearField(9);
+  @$pb.TagNumber(9)
+  GreaterThanNode ensureGreaterThanNode() => $_ensure(8);
+
+  @$pb.TagNumber(10)
+  GreaterThanOrEqualNode get greaterThanOrEqualNode => $_getN(9);
+  @$pb.TagNumber(10)
+  set greaterThanOrEqualNode(GreaterThanOrEqualNode v) { setField(10, v); }
+  @$pb.TagNumber(10)
+  $core.bool hasGreaterThanOrEqualNode() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearGreaterThanOrEqualNode() => clearField(10);
+  @$pb.TagNumber(10)
+  GreaterThanOrEqualNode ensureGreaterThanOrEqualNode() => $_ensure(9);
+
+  @$pb.TagNumber(11)
+  SmallerThanNode get smallerThanNode => $_getN(10);
+  @$pb.TagNumber(11)
+  set smallerThanNode(SmallerThanNode v) { setField(11, v); }
+  @$pb.TagNumber(11)
+  $core.bool hasSmallerThanNode() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearSmallerThanNode() => clearField(11);
+  @$pb.TagNumber(11)
+  SmallerThanNode ensureSmallerThanNode() => $_ensure(10);
+
+  @$pb.TagNumber(12)
+  SmallerThanOrEqualNode get smallerThanOrEqualNode => $_getN(11);
+  @$pb.TagNumber(12)
+  set smallerThanOrEqualNode(SmallerThanOrEqualNode v) { setField(12, v); }
+  @$pb.TagNumber(12)
+  $core.bool hasSmallerThanOrEqualNode() => $_has(11);
+  @$pb.TagNumber(12)
+  void clearSmallerThanOrEqualNode() => clearField(12);
+  @$pb.TagNumber(12)
+  SmallerThanOrEqualNode ensureSmallerThanOrEqualNode() => $_ensure(11);
 }
 
 class AddNode extends $pb.GeneratedMessage {
@@ -647,6 +719,53 @@ class ArithmeticIfElseNode extends $pb.GeneratedMessage {
   ArithmeticResultNodeWrapper ensureElse_3() => $_ensure(2);
 }
 
+class ArithmeticVariableNode extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ArithmeticVariableNode', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'instruction_serialiser'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'variableName')
+    ..hasRequiredFields = false
+  ;
+
+  ArithmeticVariableNode._() : super();
+  factory ArithmeticVariableNode({
+    $core.String? variableName,
+  }) {
+    final _result = create();
+    if (variableName != null) {
+      _result.variableName = variableName;
+    }
+    return _result;
+  }
+  factory ArithmeticVariableNode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ArithmeticVariableNode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ArithmeticVariableNode clone() => ArithmeticVariableNode()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ArithmeticVariableNode copyWith(void Function(ArithmeticVariableNode) updates) => super.copyWith((message) => updates(message as ArithmeticVariableNode)) as ArithmeticVariableNode; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static ArithmeticVariableNode create() => ArithmeticVariableNode._();
+  ArithmeticVariableNode createEmptyInstance() => create();
+  static $pb.PbList<ArithmeticVariableNode> createRepeated() => $pb.PbList<ArithmeticVariableNode>();
+  @$core.pragma('dart2js:noInline')
+  static ArithmeticVariableNode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ArithmeticVariableNode>(create);
+  static ArithmeticVariableNode? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get variableName => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set variableName($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasVariableName() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearVariableName() => clearField(1);
+}
+
 class DivideNode extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'DivideNode', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'instruction_serialiser'), createEmptyInstance: create)
     ..aOM<ArithmeticResultNodeWrapper>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'leftChild', subBuilder: ArithmeticResultNodeWrapper.create)
@@ -688,136 +807,6 @@ class DivideNode extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static DivideNode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DivideNode>(create);
   static DivideNode? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  ArithmeticResultNodeWrapper get leftChild => $_getN(0);
-  @$pb.TagNumber(1)
-  set leftChild(ArithmeticResultNodeWrapper v) { setField(1, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasLeftChild() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearLeftChild() => clearField(1);
-  @$pb.TagNumber(1)
-  ArithmeticResultNodeWrapper ensureLeftChild() => $_ensure(0);
-
-  @$pb.TagNumber(2)
-  ArithmeticResultNodeWrapper get rightChild => $_getN(1);
-  @$pb.TagNumber(2)
-  set rightChild(ArithmeticResultNodeWrapper v) { setField(2, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasRightChild() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearRightChild() => clearField(2);
-  @$pb.TagNumber(2)
-  ArithmeticResultNodeWrapper ensureRightChild() => $_ensure(1);
-}
-
-class MultiplyNode extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'MultiplyNode', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'instruction_serialiser'), createEmptyInstance: create)
-    ..aOM<ArithmeticResultNodeWrapper>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'leftChild', subBuilder: ArithmeticResultNodeWrapper.create)
-    ..aOM<ArithmeticResultNodeWrapper>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rightChild', subBuilder: ArithmeticResultNodeWrapper.create)
-    ..hasRequiredFields = false
-  ;
-
-  MultiplyNode._() : super();
-  factory MultiplyNode({
-    ArithmeticResultNodeWrapper? leftChild,
-    ArithmeticResultNodeWrapper? rightChild,
-  }) {
-    final _result = create();
-    if (leftChild != null) {
-      _result.leftChild = leftChild;
-    }
-    if (rightChild != null) {
-      _result.rightChild = rightChild;
-    }
-    return _result;
-  }
-  factory MultiplyNode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory MultiplyNode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  MultiplyNode clone() => MultiplyNode()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  MultiplyNode copyWith(void Function(MultiplyNode) updates) => super.copyWith((message) => updates(message as MultiplyNode)) as MultiplyNode; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static MultiplyNode create() => MultiplyNode._();
-  MultiplyNode createEmptyInstance() => create();
-  static $pb.PbList<MultiplyNode> createRepeated() => $pb.PbList<MultiplyNode>();
-  @$core.pragma('dart2js:noInline')
-  static MultiplyNode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<MultiplyNode>(create);
-  static MultiplyNode? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  ArithmeticResultNodeWrapper get leftChild => $_getN(0);
-  @$pb.TagNumber(1)
-  set leftChild(ArithmeticResultNodeWrapper v) { setField(1, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasLeftChild() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearLeftChild() => clearField(1);
-  @$pb.TagNumber(1)
-  ArithmeticResultNodeWrapper ensureLeftChild() => $_ensure(0);
-
-  @$pb.TagNumber(2)
-  ArithmeticResultNodeWrapper get rightChild => $_getN(1);
-  @$pb.TagNumber(2)
-  set rightChild(ArithmeticResultNodeWrapper v) { setField(2, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasRightChild() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearRightChild() => clearField(2);
-  @$pb.TagNumber(2)
-  ArithmeticResultNodeWrapper ensureRightChild() => $_ensure(1);
-}
-
-class SubtractNode extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SubtractNode', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'instruction_serialiser'), createEmptyInstance: create)
-    ..aOM<ArithmeticResultNodeWrapper>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'leftChild', subBuilder: ArithmeticResultNodeWrapper.create)
-    ..aOM<ArithmeticResultNodeWrapper>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rightChild', subBuilder: ArithmeticResultNodeWrapper.create)
-    ..hasRequiredFields = false
-  ;
-
-  SubtractNode._() : super();
-  factory SubtractNode({
-    ArithmeticResultNodeWrapper? leftChild,
-    ArithmeticResultNodeWrapper? rightChild,
-  }) {
-    final _result = create();
-    if (leftChild != null) {
-      _result.leftChild = leftChild;
-    }
-    if (rightChild != null) {
-      _result.rightChild = rightChild;
-    }
-    return _result;
-  }
-  factory SubtractNode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory SubtractNode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  SubtractNode clone() => SubtractNode()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  SubtractNode copyWith(void Function(SubtractNode) updates) => super.copyWith((message) => updates(message as SubtractNode)) as SubtractNode; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static SubtractNode create() => SubtractNode._();
-  SubtractNode createEmptyInstance() => create();
-  static $pb.PbList<SubtractNode> createRepeated() => $pb.PbList<SubtractNode>();
-  @$core.pragma('dart2js:noInline')
-  static SubtractNode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SubtractNode>(create);
-  static SubtractNode? _defaultInstance;
 
   @$pb.TagNumber(1)
   ArithmeticResultNodeWrapper get leftChild => $_getN(0);
@@ -907,6 +896,183 @@ class LogarithmNode extends $pb.GeneratedMessage {
   ArithmeticResultNodeWrapper ensureRightChild() => $_ensure(1);
 }
 
+class ModuloNode extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ModuloNode', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'instruction_serialiser'), createEmptyInstance: create)
+    ..aOM<ArithmeticResultNodeWrapper>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'leftChild', subBuilder: ArithmeticResultNodeWrapper.create)
+    ..aOM<ArithmeticResultNodeWrapper>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rightChild', subBuilder: ArithmeticResultNodeWrapper.create)
+    ..hasRequiredFields = false
+  ;
+
+  ModuloNode._() : super();
+  factory ModuloNode({
+    ArithmeticResultNodeWrapper? leftChild,
+    ArithmeticResultNodeWrapper? rightChild,
+  }) {
+    final _result = create();
+    if (leftChild != null) {
+      _result.leftChild = leftChild;
+    }
+    if (rightChild != null) {
+      _result.rightChild = rightChild;
+    }
+    return _result;
+  }
+  factory ModuloNode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ModuloNode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ModuloNode clone() => ModuloNode()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ModuloNode copyWith(void Function(ModuloNode) updates) => super.copyWith((message) => updates(message as ModuloNode)) as ModuloNode; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static ModuloNode create() => ModuloNode._();
+  ModuloNode createEmptyInstance() => create();
+  static $pb.PbList<ModuloNode> createRepeated() => $pb.PbList<ModuloNode>();
+  @$core.pragma('dart2js:noInline')
+  static ModuloNode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ModuloNode>(create);
+  static ModuloNode? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  ArithmeticResultNodeWrapper get leftChild => $_getN(0);
+  @$pb.TagNumber(1)
+  set leftChild(ArithmeticResultNodeWrapper v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasLeftChild() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearLeftChild() => clearField(1);
+  @$pb.TagNumber(1)
+  ArithmeticResultNodeWrapper ensureLeftChild() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  ArithmeticResultNodeWrapper get rightChild => $_getN(1);
+  @$pb.TagNumber(2)
+  set rightChild(ArithmeticResultNodeWrapper v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasRightChild() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearRightChild() => clearField(2);
+  @$pb.TagNumber(2)
+  ArithmeticResultNodeWrapper ensureRightChild() => $_ensure(1);
+}
+
+class MultiplyNode extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'MultiplyNode', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'instruction_serialiser'), createEmptyInstance: create)
+    ..aOM<ArithmeticResultNodeWrapper>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'leftChild', subBuilder: ArithmeticResultNodeWrapper.create)
+    ..aOM<ArithmeticResultNodeWrapper>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rightChild', subBuilder: ArithmeticResultNodeWrapper.create)
+    ..hasRequiredFields = false
+  ;
+
+  MultiplyNode._() : super();
+  factory MultiplyNode({
+    ArithmeticResultNodeWrapper? leftChild,
+    ArithmeticResultNodeWrapper? rightChild,
+  }) {
+    final _result = create();
+    if (leftChild != null) {
+      _result.leftChild = leftChild;
+    }
+    if (rightChild != null) {
+      _result.rightChild = rightChild;
+    }
+    return _result;
+  }
+  factory MultiplyNode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory MultiplyNode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  MultiplyNode clone() => MultiplyNode()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  MultiplyNode copyWith(void Function(MultiplyNode) updates) => super.copyWith((message) => updates(message as MultiplyNode)) as MultiplyNode; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static MultiplyNode create() => MultiplyNode._();
+  MultiplyNode createEmptyInstance() => create();
+  static $pb.PbList<MultiplyNode> createRepeated() => $pb.PbList<MultiplyNode>();
+  @$core.pragma('dart2js:noInline')
+  static MultiplyNode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<MultiplyNode>(create);
+  static MultiplyNode? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  ArithmeticResultNodeWrapper get leftChild => $_getN(0);
+  @$pb.TagNumber(1)
+  set leftChild(ArithmeticResultNodeWrapper v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasLeftChild() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearLeftChild() => clearField(1);
+  @$pb.TagNumber(1)
+  ArithmeticResultNodeWrapper ensureLeftChild() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  ArithmeticResultNodeWrapper get rightChild => $_getN(1);
+  @$pb.TagNumber(2)
+  set rightChild(ArithmeticResultNodeWrapper v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasRightChild() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearRightChild() => clearField(2);
+  @$pb.TagNumber(2)
+  ArithmeticResultNodeWrapper ensureRightChild() => $_ensure(1);
+}
+
+class NumberNode extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'NumberNode', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'instruction_serialiser'), createEmptyInstance: create)
+    ..a<$core.double>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value', $pb.PbFieldType.OD)
+    ..hasRequiredFields = false
+  ;
+
+  NumberNode._() : super();
+  factory NumberNode({
+    $core.double? value,
+  }) {
+    final _result = create();
+    if (value != null) {
+      _result.value = value;
+    }
+    return _result;
+  }
+  factory NumberNode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory NumberNode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  NumberNode clone() => NumberNode()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  NumberNode copyWith(void Function(NumberNode) updates) => super.copyWith((message) => updates(message as NumberNode)) as NumberNode; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static NumberNode create() => NumberNode._();
+  NumberNode createEmptyInstance() => create();
+  static $pb.PbList<NumberNode> createRepeated() => $pb.PbList<NumberNode>();
+  @$core.pragma('dart2js:noInline')
+  static NumberNode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<NumberNode>(create);
+  static NumberNode? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.double get value => $_getN(0);
+  @$pb.TagNumber(1)
+  set value($core.double v) { $_setDouble(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasValue() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearValue() => clearField(1);
+}
+
 class PowerNode extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'PowerNode', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'instruction_serialiser'), createEmptyInstance: create)
     ..aOM<ArithmeticResultNodeWrapper>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'leftChild', subBuilder: ArithmeticResultNodeWrapper.create)
@@ -948,6 +1114,378 @@ class PowerNode extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static PowerNode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PowerNode>(create);
   static PowerNode? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  ArithmeticResultNodeWrapper get leftChild => $_getN(0);
+  @$pb.TagNumber(1)
+  set leftChild(ArithmeticResultNodeWrapper v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasLeftChild() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearLeftChild() => clearField(1);
+  @$pb.TagNumber(1)
+  ArithmeticResultNodeWrapper ensureLeftChild() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  ArithmeticResultNodeWrapper get rightChild => $_getN(1);
+  @$pb.TagNumber(2)
+  set rightChild(ArithmeticResultNodeWrapper v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasRightChild() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearRightChild() => clearField(2);
+  @$pb.TagNumber(2)
+  ArithmeticResultNodeWrapper ensureRightChild() => $_ensure(1);
+}
+
+class SubtractNode extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SubtractNode', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'instruction_serialiser'), createEmptyInstance: create)
+    ..aOM<ArithmeticResultNodeWrapper>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'leftChild', subBuilder: ArithmeticResultNodeWrapper.create)
+    ..aOM<ArithmeticResultNodeWrapper>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rightChild', subBuilder: ArithmeticResultNodeWrapper.create)
+    ..hasRequiredFields = false
+  ;
+
+  SubtractNode._() : super();
+  factory SubtractNode({
+    ArithmeticResultNodeWrapper? leftChild,
+    ArithmeticResultNodeWrapper? rightChild,
+  }) {
+    final _result = create();
+    if (leftChild != null) {
+      _result.leftChild = leftChild;
+    }
+    if (rightChild != null) {
+      _result.rightChild = rightChild;
+    }
+    return _result;
+  }
+  factory SubtractNode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory SubtractNode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  SubtractNode clone() => SubtractNode()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  SubtractNode copyWith(void Function(SubtractNode) updates) => super.copyWith((message) => updates(message as SubtractNode)) as SubtractNode; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static SubtractNode create() => SubtractNode._();
+  SubtractNode createEmptyInstance() => create();
+  static $pb.PbList<SubtractNode> createRepeated() => $pb.PbList<SubtractNode>();
+  @$core.pragma('dart2js:noInline')
+  static SubtractNode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SubtractNode>(create);
+  static SubtractNode? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  ArithmeticResultNodeWrapper get leftChild => $_getN(0);
+  @$pb.TagNumber(1)
+  set leftChild(ArithmeticResultNodeWrapper v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasLeftChild() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearLeftChild() => clearField(1);
+  @$pb.TagNumber(1)
+  ArithmeticResultNodeWrapper ensureLeftChild() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  ArithmeticResultNodeWrapper get rightChild => $_getN(1);
+  @$pb.TagNumber(2)
+  set rightChild(ArithmeticResultNodeWrapper v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasRightChild() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearRightChild() => clearField(2);
+  @$pb.TagNumber(2)
+  ArithmeticResultNodeWrapper ensureRightChild() => $_ensure(1);
+}
+
+class AndNode extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'AndNode', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'instruction_serialiser'), createEmptyInstance: create)
+    ..aOM<LogicalResultNodeWrapper>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'leftChild', subBuilder: LogicalResultNodeWrapper.create)
+    ..aOM<LogicalResultNodeWrapper>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rightChild', subBuilder: LogicalResultNodeWrapper.create)
+    ..hasRequiredFields = false
+  ;
+
+  AndNode._() : super();
+  factory AndNode({
+    LogicalResultNodeWrapper? leftChild,
+    LogicalResultNodeWrapper? rightChild,
+  }) {
+    final _result = create();
+    if (leftChild != null) {
+      _result.leftChild = leftChild;
+    }
+    if (rightChild != null) {
+      _result.rightChild = rightChild;
+    }
+    return _result;
+  }
+  factory AndNode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory AndNode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  AndNode clone() => AndNode()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  AndNode copyWith(void Function(AndNode) updates) => super.copyWith((message) => updates(message as AndNode)) as AndNode; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static AndNode create() => AndNode._();
+  AndNode createEmptyInstance() => create();
+  static $pb.PbList<AndNode> createRepeated() => $pb.PbList<AndNode>();
+  @$core.pragma('dart2js:noInline')
+  static AndNode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<AndNode>(create);
+  static AndNode? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  LogicalResultNodeWrapper get leftChild => $_getN(0);
+  @$pb.TagNumber(1)
+  set leftChild(LogicalResultNodeWrapper v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasLeftChild() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearLeftChild() => clearField(1);
+  @$pb.TagNumber(1)
+  LogicalResultNodeWrapper ensureLeftChild() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  LogicalResultNodeWrapper get rightChild => $_getN(1);
+  @$pb.TagNumber(2)
+  set rightChild(LogicalResultNodeWrapper v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasRightChild() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearRightChild() => clearField(2);
+  @$pb.TagNumber(2)
+  LogicalResultNodeWrapper ensureRightChild() => $_ensure(1);
+}
+
+class BoolNode extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'BoolNode', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'instruction_serialiser'), createEmptyInstance: create)
+    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value')
+    ..hasRequiredFields = false
+  ;
+
+  BoolNode._() : super();
+  factory BoolNode({
+    $core.bool? value,
+  }) {
+    final _result = create();
+    if (value != null) {
+      _result.value = value;
+    }
+    return _result;
+  }
+  factory BoolNode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory BoolNode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  BoolNode clone() => BoolNode()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  BoolNode copyWith(void Function(BoolNode) updates) => super.copyWith((message) => updates(message as BoolNode)) as BoolNode; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static BoolNode create() => BoolNode._();
+  BoolNode createEmptyInstance() => create();
+  static $pb.PbList<BoolNode> createRepeated() => $pb.PbList<BoolNode>();
+  @$core.pragma('dart2js:noInline')
+  static BoolNode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BoolNode>(create);
+  static BoolNode? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get value => $_getBF(0);
+  @$pb.TagNumber(1)
+  set value($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasValue() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearValue() => clearField(1);
+}
+
+class EqualNode extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'EqualNode', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'instruction_serialiser'), createEmptyInstance: create)
+    ..aOM<ArithmeticResultNodeWrapper>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'leftChild', subBuilder: ArithmeticResultNodeWrapper.create)
+    ..aOM<ArithmeticResultNodeWrapper>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rightChild', subBuilder: ArithmeticResultNodeWrapper.create)
+    ..hasRequiredFields = false
+  ;
+
+  EqualNode._() : super();
+  factory EqualNode({
+    ArithmeticResultNodeWrapper? leftChild,
+    ArithmeticResultNodeWrapper? rightChild,
+  }) {
+    final _result = create();
+    if (leftChild != null) {
+      _result.leftChild = leftChild;
+    }
+    if (rightChild != null) {
+      _result.rightChild = rightChild;
+    }
+    return _result;
+  }
+  factory EqualNode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory EqualNode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  EqualNode clone() => EqualNode()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  EqualNode copyWith(void Function(EqualNode) updates) => super.copyWith((message) => updates(message as EqualNode)) as EqualNode; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static EqualNode create() => EqualNode._();
+  EqualNode createEmptyInstance() => create();
+  static $pb.PbList<EqualNode> createRepeated() => $pb.PbList<EqualNode>();
+  @$core.pragma('dart2js:noInline')
+  static EqualNode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<EqualNode>(create);
+  static EqualNode? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  ArithmeticResultNodeWrapper get leftChild => $_getN(0);
+  @$pb.TagNumber(1)
+  set leftChild(ArithmeticResultNodeWrapper v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasLeftChild() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearLeftChild() => clearField(1);
+  @$pb.TagNumber(1)
+  ArithmeticResultNodeWrapper ensureLeftChild() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  ArithmeticResultNodeWrapper get rightChild => $_getN(1);
+  @$pb.TagNumber(2)
+  set rightChild(ArithmeticResultNodeWrapper v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasRightChild() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearRightChild() => clearField(2);
+  @$pb.TagNumber(2)
+  ArithmeticResultNodeWrapper ensureRightChild() => $_ensure(1);
+}
+
+class GreaterThanNode extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GreaterThanNode', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'instruction_serialiser'), createEmptyInstance: create)
+    ..aOM<ArithmeticResultNodeWrapper>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'leftChild', subBuilder: ArithmeticResultNodeWrapper.create)
+    ..aOM<ArithmeticResultNodeWrapper>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rightChild', subBuilder: ArithmeticResultNodeWrapper.create)
+    ..hasRequiredFields = false
+  ;
+
+  GreaterThanNode._() : super();
+  factory GreaterThanNode({
+    ArithmeticResultNodeWrapper? leftChild,
+    ArithmeticResultNodeWrapper? rightChild,
+  }) {
+    final _result = create();
+    if (leftChild != null) {
+      _result.leftChild = leftChild;
+    }
+    if (rightChild != null) {
+      _result.rightChild = rightChild;
+    }
+    return _result;
+  }
+  factory GreaterThanNode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GreaterThanNode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GreaterThanNode clone() => GreaterThanNode()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GreaterThanNode copyWith(void Function(GreaterThanNode) updates) => super.copyWith((message) => updates(message as GreaterThanNode)) as GreaterThanNode; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static GreaterThanNode create() => GreaterThanNode._();
+  GreaterThanNode createEmptyInstance() => create();
+  static $pb.PbList<GreaterThanNode> createRepeated() => $pb.PbList<GreaterThanNode>();
+  @$core.pragma('dart2js:noInline')
+  static GreaterThanNode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GreaterThanNode>(create);
+  static GreaterThanNode? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  ArithmeticResultNodeWrapper get leftChild => $_getN(0);
+  @$pb.TagNumber(1)
+  set leftChild(ArithmeticResultNodeWrapper v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasLeftChild() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearLeftChild() => clearField(1);
+  @$pb.TagNumber(1)
+  ArithmeticResultNodeWrapper ensureLeftChild() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  ArithmeticResultNodeWrapper get rightChild => $_getN(1);
+  @$pb.TagNumber(2)
+  set rightChild(ArithmeticResultNodeWrapper v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasRightChild() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearRightChild() => clearField(2);
+  @$pb.TagNumber(2)
+  ArithmeticResultNodeWrapper ensureRightChild() => $_ensure(1);
+}
+
+class GreaterThanOrEqualNode extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GreaterThanOrEqualNode', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'instruction_serialiser'), createEmptyInstance: create)
+    ..aOM<ArithmeticResultNodeWrapper>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'leftChild', subBuilder: ArithmeticResultNodeWrapper.create)
+    ..aOM<ArithmeticResultNodeWrapper>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rightChild', subBuilder: ArithmeticResultNodeWrapper.create)
+    ..hasRequiredFields = false
+  ;
+
+  GreaterThanOrEqualNode._() : super();
+  factory GreaterThanOrEqualNode({
+    ArithmeticResultNodeWrapper? leftChild,
+    ArithmeticResultNodeWrapper? rightChild,
+  }) {
+    final _result = create();
+    if (leftChild != null) {
+      _result.leftChild = leftChild;
+    }
+    if (rightChild != null) {
+      _result.rightChild = rightChild;
+    }
+    return _result;
+  }
+  factory GreaterThanOrEqualNode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GreaterThanOrEqualNode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GreaterThanOrEqualNode clone() => GreaterThanOrEqualNode()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GreaterThanOrEqualNode copyWith(void Function(GreaterThanOrEqualNode) updates) => super.copyWith((message) => updates(message as GreaterThanOrEqualNode)) as GreaterThanOrEqualNode; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static GreaterThanOrEqualNode create() => GreaterThanOrEqualNode._();
+  GreaterThanOrEqualNode createEmptyInstance() => create();
+  static $pb.PbList<GreaterThanOrEqualNode> createRepeated() => $pb.PbList<GreaterThanOrEqualNode>();
+  @$core.pragma('dart2js:noInline')
+  static GreaterThanOrEqualNode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GreaterThanOrEqualNode>(create);
+  static GreaterThanOrEqualNode? _defaultInstance;
 
   @$pb.TagNumber(1)
   ArithmeticResultNodeWrapper get leftChild => $_getN(0);
@@ -1053,126 +1591,14 @@ class LogicalIfElseNode extends $pb.GeneratedMessage {
   LogicalResultNodeWrapper ensureElse_3() => $_ensure(2);
 }
 
-class ModuloNode extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ModuloNode', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'instruction_serialiser'), createEmptyInstance: create)
-    ..aOM<ArithmeticResultNodeWrapper>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'leftChild', subBuilder: ArithmeticResultNodeWrapper.create)
-    ..aOM<ArithmeticResultNodeWrapper>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rightChild', subBuilder: ArithmeticResultNodeWrapper.create)
-    ..hasRequiredFields = false
-  ;
-
-  ModuloNode._() : super();
-  factory ModuloNode({
-    ArithmeticResultNodeWrapper? leftChild,
-    ArithmeticResultNodeWrapper? rightChild,
-  }) {
-    final _result = create();
-    if (leftChild != null) {
-      _result.leftChild = leftChild;
-    }
-    if (rightChild != null) {
-      _result.rightChild = rightChild;
-    }
-    return _result;
-  }
-  factory ModuloNode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory ModuloNode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  ModuloNode clone() => ModuloNode()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  ModuloNode copyWith(void Function(ModuloNode) updates) => super.copyWith((message) => updates(message as ModuloNode)) as ModuloNode; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static ModuloNode create() => ModuloNode._();
-  ModuloNode createEmptyInstance() => create();
-  static $pb.PbList<ModuloNode> createRepeated() => $pb.PbList<ModuloNode>();
-  @$core.pragma('dart2js:noInline')
-  static ModuloNode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ModuloNode>(create);
-  static ModuloNode? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  ArithmeticResultNodeWrapper get leftChild => $_getN(0);
-  @$pb.TagNumber(1)
-  set leftChild(ArithmeticResultNodeWrapper v) { setField(1, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasLeftChild() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearLeftChild() => clearField(1);
-  @$pb.TagNumber(1)
-  ArithmeticResultNodeWrapper ensureLeftChild() => $_ensure(0);
-
-  @$pb.TagNumber(2)
-  ArithmeticResultNodeWrapper get rightChild => $_getN(1);
-  @$pb.TagNumber(2)
-  set rightChild(ArithmeticResultNodeWrapper v) { setField(2, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasRightChild() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearRightChild() => clearField(2);
-  @$pb.TagNumber(2)
-  ArithmeticResultNodeWrapper ensureRightChild() => $_ensure(1);
-}
-
-class NumberNode extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'NumberNode', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'instruction_serialiser'), createEmptyInstance: create)
-    ..a<$core.double>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value', $pb.PbFieldType.OD)
-    ..hasRequiredFields = false
-  ;
-
-  NumberNode._() : super();
-  factory NumberNode({
-    $core.double? value,
-  }) {
-    final _result = create();
-    if (value != null) {
-      _result.value = value;
-    }
-    return _result;
-  }
-  factory NumberNode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory NumberNode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  NumberNode clone() => NumberNode()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  NumberNode copyWith(void Function(NumberNode) updates) => super.copyWith((message) => updates(message as NumberNode)) as NumberNode; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static NumberNode create() => NumberNode._();
-  NumberNode createEmptyInstance() => create();
-  static $pb.PbList<NumberNode> createRepeated() => $pb.PbList<NumberNode>();
-  @$core.pragma('dart2js:noInline')
-  static NumberNode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<NumberNode>(create);
-  static NumberNode? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.double get value => $_getN(0);
-  @$pb.TagNumber(1)
-  set value($core.double v) { $_setDouble(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasValue() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearValue() => clearField(1);
-}
-
-class ArithmeticVariableNode extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ArithmeticVariableNode', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'instruction_serialiser'), createEmptyInstance: create)
+class LogicalVariableNode extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'LogicalVariableNode', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'instruction_serialiser'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'variableName')
     ..hasRequiredFields = false
   ;
 
-  ArithmeticVariableNode._() : super();
-  factory ArithmeticVariableNode({
+  LogicalVariableNode._() : super();
+  factory LogicalVariableNode({
     $core.String? variableName,
   }) {
     final _result = create();
@@ -1181,26 +1607,26 @@ class ArithmeticVariableNode extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory ArithmeticVariableNode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory ArithmeticVariableNode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory LogicalVariableNode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory LogicalVariableNode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  ArithmeticVariableNode clone() => ArithmeticVariableNode()..mergeFromMessage(this);
+  LogicalVariableNode clone() => LogicalVariableNode()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  ArithmeticVariableNode copyWith(void Function(ArithmeticVariableNode) updates) => super.copyWith((message) => updates(message as ArithmeticVariableNode)) as ArithmeticVariableNode; // ignore: deprecated_member_use
+  LogicalVariableNode copyWith(void Function(LogicalVariableNode) updates) => super.copyWith((message) => updates(message as LogicalVariableNode)) as LogicalVariableNode; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static ArithmeticVariableNode create() => ArithmeticVariableNode._();
-  ArithmeticVariableNode createEmptyInstance() => create();
-  static $pb.PbList<ArithmeticVariableNode> createRepeated() => $pb.PbList<ArithmeticVariableNode>();
+  static LogicalVariableNode create() => LogicalVariableNode._();
+  LogicalVariableNode createEmptyInstance() => create();
+  static $pb.PbList<LogicalVariableNode> createRepeated() => $pb.PbList<LogicalVariableNode>();
   @$core.pragma('dart2js:noInline')
-  static ArithmeticVariableNode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ArithmeticVariableNode>(create);
-  static ArithmeticVariableNode? _defaultInstance;
+  static LogicalVariableNode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<LogicalVariableNode>(create);
+  static LogicalVariableNode? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get variableName => $_getSZ(0);
@@ -1210,136 +1636,6 @@ class ArithmeticVariableNode extends $pb.GeneratedMessage {
   $core.bool hasVariableName() => $_has(0);
   @$pb.TagNumber(1)
   void clearVariableName() => clearField(1);
-}
-
-class AndNode extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'AndNode', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'instruction_serialiser'), createEmptyInstance: create)
-    ..aOM<LogicalResultNodeWrapper>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'leftChild', subBuilder: LogicalResultNodeWrapper.create)
-    ..aOM<LogicalResultNodeWrapper>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rightChild', subBuilder: LogicalResultNodeWrapper.create)
-    ..hasRequiredFields = false
-  ;
-
-  AndNode._() : super();
-  factory AndNode({
-    LogicalResultNodeWrapper? leftChild,
-    LogicalResultNodeWrapper? rightChild,
-  }) {
-    final _result = create();
-    if (leftChild != null) {
-      _result.leftChild = leftChild;
-    }
-    if (rightChild != null) {
-      _result.rightChild = rightChild;
-    }
-    return _result;
-  }
-  factory AndNode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory AndNode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  AndNode clone() => AndNode()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  AndNode copyWith(void Function(AndNode) updates) => super.copyWith((message) => updates(message as AndNode)) as AndNode; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static AndNode create() => AndNode._();
-  AndNode createEmptyInstance() => create();
-  static $pb.PbList<AndNode> createRepeated() => $pb.PbList<AndNode>();
-  @$core.pragma('dart2js:noInline')
-  static AndNode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<AndNode>(create);
-  static AndNode? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  LogicalResultNodeWrapper get leftChild => $_getN(0);
-  @$pb.TagNumber(1)
-  set leftChild(LogicalResultNodeWrapper v) { setField(1, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasLeftChild() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearLeftChild() => clearField(1);
-  @$pb.TagNumber(1)
-  LogicalResultNodeWrapper ensureLeftChild() => $_ensure(0);
-
-  @$pb.TagNumber(2)
-  LogicalResultNodeWrapper get rightChild => $_getN(1);
-  @$pb.TagNumber(2)
-  set rightChild(LogicalResultNodeWrapper v) { setField(2, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasRightChild() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearRightChild() => clearField(2);
-  @$pb.TagNumber(2)
-  LogicalResultNodeWrapper ensureRightChild() => $_ensure(1);
-}
-
-class EqualNode extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'EqualNode', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'instruction_serialiser'), createEmptyInstance: create)
-    ..aOM<ArithmeticResultNodeWrapper>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'leftChild', subBuilder: ArithmeticResultNodeWrapper.create)
-    ..aOM<ArithmeticResultNodeWrapper>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rightChild', subBuilder: ArithmeticResultNodeWrapper.create)
-    ..hasRequiredFields = false
-  ;
-
-  EqualNode._() : super();
-  factory EqualNode({
-    ArithmeticResultNodeWrapper? leftChild,
-    ArithmeticResultNodeWrapper? rightChild,
-  }) {
-    final _result = create();
-    if (leftChild != null) {
-      _result.leftChild = leftChild;
-    }
-    if (rightChild != null) {
-      _result.rightChild = rightChild;
-    }
-    return _result;
-  }
-  factory EqualNode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory EqualNode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  EqualNode clone() => EqualNode()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  EqualNode copyWith(void Function(EqualNode) updates) => super.copyWith((message) => updates(message as EqualNode)) as EqualNode; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static EqualNode create() => EqualNode._();
-  EqualNode createEmptyInstance() => create();
-  static $pb.PbList<EqualNode> createRepeated() => $pb.PbList<EqualNode>();
-  @$core.pragma('dart2js:noInline')
-  static EqualNode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<EqualNode>(create);
-  static EqualNode? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  ArithmeticResultNodeWrapper get leftChild => $_getN(0);
-  @$pb.TagNumber(1)
-  set leftChild(ArithmeticResultNodeWrapper v) { setField(1, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasLeftChild() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearLeftChild() => clearField(1);
-  @$pb.TagNumber(1)
-  ArithmeticResultNodeWrapper ensureLeftChild() => $_ensure(0);
-
-  @$pb.TagNumber(2)
-  ArithmeticResultNodeWrapper get rightChild => $_getN(1);
-  @$pb.TagNumber(2)
-  set rightChild(ArithmeticResultNodeWrapper v) { setField(2, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasRightChild() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearRightChild() => clearField(2);
-  @$pb.TagNumber(2)
-  ArithmeticResultNodeWrapper ensureRightChild() => $_ensure(1);
 }
 
 class NegateNode extends $pb.GeneratedMessage {
@@ -1456,6 +1752,136 @@ class OrNode extends $pb.GeneratedMessage {
   LogicalResultNodeWrapper ensureRightChild() => $_ensure(1);
 }
 
+class SmallerThanNode extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SmallerThanNode', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'instruction_serialiser'), createEmptyInstance: create)
+    ..aOM<ArithmeticResultNodeWrapper>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'leftChild', subBuilder: ArithmeticResultNodeWrapper.create)
+    ..aOM<ArithmeticResultNodeWrapper>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rightChild', subBuilder: ArithmeticResultNodeWrapper.create)
+    ..hasRequiredFields = false
+  ;
+
+  SmallerThanNode._() : super();
+  factory SmallerThanNode({
+    ArithmeticResultNodeWrapper? leftChild,
+    ArithmeticResultNodeWrapper? rightChild,
+  }) {
+    final _result = create();
+    if (leftChild != null) {
+      _result.leftChild = leftChild;
+    }
+    if (rightChild != null) {
+      _result.rightChild = rightChild;
+    }
+    return _result;
+  }
+  factory SmallerThanNode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory SmallerThanNode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  SmallerThanNode clone() => SmallerThanNode()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  SmallerThanNode copyWith(void Function(SmallerThanNode) updates) => super.copyWith((message) => updates(message as SmallerThanNode)) as SmallerThanNode; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static SmallerThanNode create() => SmallerThanNode._();
+  SmallerThanNode createEmptyInstance() => create();
+  static $pb.PbList<SmallerThanNode> createRepeated() => $pb.PbList<SmallerThanNode>();
+  @$core.pragma('dart2js:noInline')
+  static SmallerThanNode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SmallerThanNode>(create);
+  static SmallerThanNode? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  ArithmeticResultNodeWrapper get leftChild => $_getN(0);
+  @$pb.TagNumber(1)
+  set leftChild(ArithmeticResultNodeWrapper v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasLeftChild() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearLeftChild() => clearField(1);
+  @$pb.TagNumber(1)
+  ArithmeticResultNodeWrapper ensureLeftChild() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  ArithmeticResultNodeWrapper get rightChild => $_getN(1);
+  @$pb.TagNumber(2)
+  set rightChild(ArithmeticResultNodeWrapper v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasRightChild() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearRightChild() => clearField(2);
+  @$pb.TagNumber(2)
+  ArithmeticResultNodeWrapper ensureRightChild() => $_ensure(1);
+}
+
+class SmallerThanOrEqualNode extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SmallerThanOrEqualNode', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'instruction_serialiser'), createEmptyInstance: create)
+    ..aOM<ArithmeticResultNodeWrapper>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'leftChild', subBuilder: ArithmeticResultNodeWrapper.create)
+    ..aOM<ArithmeticResultNodeWrapper>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rightChild', subBuilder: ArithmeticResultNodeWrapper.create)
+    ..hasRequiredFields = false
+  ;
+
+  SmallerThanOrEqualNode._() : super();
+  factory SmallerThanOrEqualNode({
+    ArithmeticResultNodeWrapper? leftChild,
+    ArithmeticResultNodeWrapper? rightChild,
+  }) {
+    final _result = create();
+    if (leftChild != null) {
+      _result.leftChild = leftChild;
+    }
+    if (rightChild != null) {
+      _result.rightChild = rightChild;
+    }
+    return _result;
+  }
+  factory SmallerThanOrEqualNode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory SmallerThanOrEqualNode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  SmallerThanOrEqualNode clone() => SmallerThanOrEqualNode()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  SmallerThanOrEqualNode copyWith(void Function(SmallerThanOrEqualNode) updates) => super.copyWith((message) => updates(message as SmallerThanOrEqualNode)) as SmallerThanOrEqualNode; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static SmallerThanOrEqualNode create() => SmallerThanOrEqualNode._();
+  SmallerThanOrEqualNode createEmptyInstance() => create();
+  static $pb.PbList<SmallerThanOrEqualNode> createRepeated() => $pb.PbList<SmallerThanOrEqualNode>();
+  @$core.pragma('dart2js:noInline')
+  static SmallerThanOrEqualNode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SmallerThanOrEqualNode>(create);
+  static SmallerThanOrEqualNode? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  ArithmeticResultNodeWrapper get leftChild => $_getN(0);
+  @$pb.TagNumber(1)
+  set leftChild(ArithmeticResultNodeWrapper v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasLeftChild() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearLeftChild() => clearField(1);
+  @$pb.TagNumber(1)
+  ArithmeticResultNodeWrapper ensureLeftChild() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  ArithmeticResultNodeWrapper get rightChild => $_getN(1);
+  @$pb.TagNumber(2)
+  set rightChild(ArithmeticResultNodeWrapper v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasRightChild() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearRightChild() => clearField(2);
+  @$pb.TagNumber(2)
+  ArithmeticResultNodeWrapper ensureRightChild() => $_ensure(1);
+}
+
 class XorNode extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'XorNode', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'instruction_serialiser'), createEmptyInstance: create)
     ..aOM<LogicalResultNodeWrapper>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'leftChild', subBuilder: LogicalResultNodeWrapper.create)
@@ -1519,99 +1945,5 @@ class XorNode extends $pb.GeneratedMessage {
   void clearRightChild() => clearField(2);
   @$pb.TagNumber(2)
   LogicalResultNodeWrapper ensureRightChild() => $_ensure(1);
-}
-
-class BoolNode extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'BoolNode', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'instruction_serialiser'), createEmptyInstance: create)
-    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value')
-    ..hasRequiredFields = false
-  ;
-
-  BoolNode._() : super();
-  factory BoolNode({
-    $core.bool? value,
-  }) {
-    final _result = create();
-    if (value != null) {
-      _result.value = value;
-    }
-    return _result;
-  }
-  factory BoolNode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory BoolNode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  BoolNode clone() => BoolNode()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  BoolNode copyWith(void Function(BoolNode) updates) => super.copyWith((message) => updates(message as BoolNode)) as BoolNode; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static BoolNode create() => BoolNode._();
-  BoolNode createEmptyInstance() => create();
-  static $pb.PbList<BoolNode> createRepeated() => $pb.PbList<BoolNode>();
-  @$core.pragma('dart2js:noInline')
-  static BoolNode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BoolNode>(create);
-  static BoolNode? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.bool get value => $_getBF(0);
-  @$pb.TagNumber(1)
-  set value($core.bool v) { $_setBool(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasValue() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearValue() => clearField(1);
-}
-
-class LogicalVariableNode extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'LogicalVariableNode', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'instruction_serialiser'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'variableName')
-    ..hasRequiredFields = false
-  ;
-
-  LogicalVariableNode._() : super();
-  factory LogicalVariableNode({
-    $core.String? variableName,
-  }) {
-    final _result = create();
-    if (variableName != null) {
-      _result.variableName = variableName;
-    }
-    return _result;
-  }
-  factory LogicalVariableNode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory LogicalVariableNode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  LogicalVariableNode clone() => LogicalVariableNode()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  LogicalVariableNode copyWith(void Function(LogicalVariableNode) updates) => super.copyWith((message) => updates(message as LogicalVariableNode)) as LogicalVariableNode; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static LogicalVariableNode create() => LogicalVariableNode._();
-  LogicalVariableNode createEmptyInstance() => create();
-  static $pb.PbList<LogicalVariableNode> createRepeated() => $pb.PbList<LogicalVariableNode>();
-  @$core.pragma('dart2js:noInline')
-  static LogicalVariableNode getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<LogicalVariableNode>(create);
-  static LogicalVariableNode? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.String get variableName => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set variableName($core.String v) { $_setString(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasVariableName() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearVariableName() => clearField(1);
 }
 

@@ -13,12 +13,20 @@ extension LRNW on LogicalResultNodeWrapper {
       return this.ensureBoolNode().calculate(parameters);
     } else if (this.hasEqualNode()) {
       return this.ensureEqualNode().calculate(parameters);
+    } else if (this.hasGreaterThanNode()) {
+      return this.ensureGreaterThanNode().calculate(parameters);
+    } else if (this.hasGreaterThanOrEqualNode()) {
+      return this.ensureGreaterThanOrEqualNode().calculate(parameters);
     } else if (this.hasIfElseNode()) {
       return this.ensureIfElseNode().calculate(parameters);
     } else if (this.hasNegateNode()) {
       return this.ensureNegateNode().calculate(parameters);
     } else if (this.hasOrNode()) {
       return this.ensureOrNode().calculate(parameters);
+    } else if (this.hasSmallerThanNode()) {
+      return this.ensureSmallerThanNode().calculate(parameters);
+    } else if (this.hasSmallerThanOrEqualNode()) {
+      return this.ensureSmallerThanOrEqualNode().calculate(parameters);
     } else if (this.hasVariableNode()) {
       return this.ensureVariableNode().calculate(parameters);
     } else if (this.hasXorNode()) {
@@ -122,6 +130,34 @@ LogicalResultNodeWrapper createBoolNode(LogicalType value) {
 extension on EqualNode {
   LogicalType calculate(Map<String, dynamic> parameters) {
     return this.leftChild.calculate(parameters) ==
+        this.rightChild.calculate(parameters);
+  }
+}
+
+extension on GreaterThanNode {
+  LogicalType calculate(Map<String, dynamic> parameters) {
+    return this.leftChild.calculate(parameters) >
+        this.rightChild.calculate(parameters);
+  }
+}
+
+extension on GreaterThanOrEqualNode {
+  LogicalType calculate(Map<String, dynamic> parameters) {
+    return this.leftChild.calculate(parameters) >=
+        this.rightChild.calculate(parameters);
+  }
+}
+
+extension on SmallerThanNode {
+  LogicalType calculate(Map<String, dynamic> parameters) {
+    return this.leftChild.calculate(parameters) <
+        this.rightChild.calculate(parameters);
+  }
+}
+
+extension on SmallerThanOrEqualNode {
+  LogicalType calculate(Map<String, dynamic> parameters) {
+    return this.leftChild.calculate(parameters) <=
         this.rightChild.calculate(parameters);
   }
 }

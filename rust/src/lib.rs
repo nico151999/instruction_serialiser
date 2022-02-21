@@ -32,6 +32,10 @@ mod arithmetic_if_else_node;
 mod logical_if_else_node;
 
 pub mod instruction_wrapper;
+mod greater_than_node;
+mod greater_than_or_equal_node;
+mod smaller_than_node;
+mod smaller_than_or_equal_node;
 
 pub use instruction_wrapper::InstructionWrapper;
 

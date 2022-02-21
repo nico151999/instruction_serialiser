@@ -57,6 +57,33 @@ extension ARNW on ArithmeticResultNodeWrapper {
     );
   }
 
+  LogicalResultNodeWrapper equal(ArithmeticResultNodeWrapper other) {
+    return LogicalResultNodeWrapper(
+        equalNode: EqualNode(
+            leftChild: this,
+            rightChild: other
+        )
+    );
+  }
+
+  LogicalResultNodeWrapper operator >(ArithmeticResultNodeWrapper other) {
+    return LogicalResultNodeWrapper(
+        greaterThanNode: GreaterThanNode(
+            leftChild: this,
+            rightChild: other
+        )
+    );
+  }
+
+  LogicalResultNodeWrapper operator >=(ArithmeticResultNodeWrapper other) {
+    return LogicalResultNodeWrapper(
+        greaterThanOrEqualNode: GreaterThanOrEqualNode(
+            leftChild: this,
+            rightChild: other
+        )
+    );
+  }
+
   ArithmeticResultNodeWrapper logarithm(ArithmeticResultNodeWrapper other) {
     return ArithmeticResultNodeWrapper(
         logarithmNode: LogarithmNode(
@@ -93,20 +120,29 @@ extension ARNW on ArithmeticResultNodeWrapper {
     );
   }
 
+  LogicalResultNodeWrapper operator <(ArithmeticResultNodeWrapper other) {
+    return LogicalResultNodeWrapper(
+        smallerThanNode: SmallerThanNode(
+            leftChild: this,
+            rightChild: other
+        )
+    );
+  }
+
+  LogicalResultNodeWrapper operator <=(ArithmeticResultNodeWrapper other) {
+    return LogicalResultNodeWrapper(
+        smallerThanOrEqualNode: SmallerThanOrEqualNode(
+            leftChild: this,
+            rightChild: other
+        )
+    );
+  }
+
   ArithmeticResultNodeWrapper operator -(ArithmeticResultNodeWrapper subtractor) {
     return ArithmeticResultNodeWrapper(
         subtractNode: SubtractNode(
             leftChild: this,
             rightChild: subtractor
-        )
-    );
-  }
-
-  LogicalResultNodeWrapper equal(ArithmeticResultNodeWrapper other) {
-    return LogicalResultNodeWrapper(
-        equalNode: EqualNode(
-            leftChild: this,
-            rightChild: other
         )
     );
   }

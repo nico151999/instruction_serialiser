@@ -22,7 +22,11 @@ impl NodeWrapper<LogicalType> for LogicalResultNodeWrapper {
             Node::OrNode(node) => node.calculate(parameters),
             Node::XorNode(node) => node.calculate(parameters),
             Node::VariableNode(node) => node.calculate(parameters),
-            Node::IfElseNode(node) => node.calculate(parameters)
+            Node::IfElseNode(node) => node.calculate(parameters),
+            Node::GreaterThanNode(node) => node.calculate(parameters),
+            Node::GreaterThanOrEqualNode(node) => node.calculate(parameters),
+            Node::SmallerThanNode(node) => node.calculate(parameters),
+            Node::SmallerThanOrEqualNode(node) => node.calculate(parameters),
         }
     }
     fn serialise(self) -> Result<Vec<u8>, SerialisationError> {
