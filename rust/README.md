@@ -16,3 +16,12 @@ functionality.
 
 Tests can be found right inside the files which also contain the program
 logic. If you want to write your own tests please put them there.
+
+## Publishing new versions
+All files required for building need to reside inside the working directory.
+References to external files like the proto definitions residing in the
+parent directory cause the resulting package to be invalid. Therefore,
+[a script](publish.sh) temporarily importing external dependencies to the
+working directory, updating relative paths and performing the publish
+operation is provided. It accepts all commandline arguments `cargo publish`
+accepts as well.
