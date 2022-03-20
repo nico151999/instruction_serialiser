@@ -1,0 +1,26 @@
+{
+  "name": "instruction_serialiser",
+  "version": "0.0.1",
+  "description": "The Typescript implementation of the instruction serialiser",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/nico151999/instruction_serialiser.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/nico151999/instruction_serialiser/issues"
+  },
+  "homepage": "https://github.com/nico151999/instruction_serialiser/tree/main/typescript",
+  "dependencies": {
+    "google-protobuf": "^3.20.0-rc.2"
+  }
+}
