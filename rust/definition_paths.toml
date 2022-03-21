@@ -1,0 +1,3 @@
+[definition]
+DEFINITION_DIR_DEV = "../definition"
+DEFINITION_DIR_PROD = "./definition"
