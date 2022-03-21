@@ -1,1 +1,1 @@
-export {ArithmeticResultNodeWrapper} from './arithmetic_result_node_wrapper';
+export { ArithmeticResultNodeWrapper } from './arithmetic_result_node_wrapper';

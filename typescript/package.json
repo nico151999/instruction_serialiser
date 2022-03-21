@@ -5,16 +5,21 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "/dist"
+    "dist/**/*"
   ],
+  "eslintIgnore": ["src/instruction_serialiser/*"],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --config jestconfig.json",
+    "build": "tsc",
+    "lint": "eslint \"./**/*.ts\" --fix",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint"
   },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/nico151999/instruction_serialiser.git"
   },
-  "author": "",
+  "author": "nico151999",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/nico151999/instruction_serialiser/issues"
@@ -22,5 +27,14 @@
   "homepage": "https://github.com/nico151999/instruction_serialiser/tree/main/typescript",
   "dependencies": {
     "google-protobuf": "^3.20.0-rc.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "@typescript-eslint/eslint-plugin": "^5.15.0",
+    "@typescript-eslint/parser": "^5.15.0",
+    "eslint": "^8.11.0",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.3",
+    "typescript": "^4.6.2"
   }
 }
