@@ -9,16 +9,15 @@ function cleanup {
 
 function main {
   cd "$(dirname "${BASH_SOURCE[0]}")" || exit 1
-  parse_config .cargo/config.toml || exit 1
-  local DEFINITION_DIR_VARIABLE_NAME='DEFINITION_DIR' || exit 1
+  parse_config definition_paths.toml || exit 1
+  local DEFINITION_DIR_DEV_VARIABLE_NAME='DEFINITION_DIR_DEV' || exit 1
+  local DEFINITION_DIR_PROD_VARIABLE_NAME='DEFINITION_DIR_PROD' || exit 1
   # shellcheck disable=SC2154
-  local DEFINITION_SRC_DIR="${env[$DEFINITION_DIR_VARIABLE_NAME]}" || exit 1
-  local DEFINITION_DEST_DIR='./temp_definition' || exit 1
+  local DEFINITION_SRC_DIR="${definition[$DEFINITION_DIR_DEV_VARIABLE_NAME]}" || exit 1
+  local DEFINITION_DEST_DIR="${definition[$DEFINITION_DIR_PROD_VARIABLE_NAME]}" || exit 1
   mkdir "$DEFINITION_DEST_DIR" || exit 1
   cp -rf "$DEFINITION_SRC_DIR"/* "$DEFINITION_DEST_DIR" || cleanup "$DEFINITION_DEST_DIR" 1
-  export "$DEFINITION_DIR_VARIABLE_NAME=$DEFINITION_DEST_DIR" || cleanup "$DEFINITION_DEST_DIR" 1
   cargo publish "$@" || cleanup "$DEFINITION_DEST_DIR" 1
-  unset "$DEFINITION_DIR_VARIABLE_NAME"
   cleanup "$DEFINITION_DEST_DIR" 0
 }
 

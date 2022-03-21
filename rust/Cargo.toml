@@ -1,6 +1,6 @@
 [package]
 name = "instruction_serialiser"
-version = "0.0.5"
+version = "0.0.6"
 edition = "2021"
 license = "Apache-2.0"
 description = "This package helps developers serialising calculation instructions for reusing or archiving them."
@@ -14,3 +14,4 @@ prost = "0.9.0"
 
 [build-dependencies]
 prost-build = "0.9.0"
+config = "0.12.0"
