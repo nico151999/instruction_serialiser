@@ -7,7 +7,9 @@
   "files": [
     "dist/**/*"
   ],
-  "eslintIgnore": ["src/instruction_serialiser/*"],
+  "eslintIgnore": [
+    "src/instruction_serialiser/*"
+  ],
   "scripts": {
     "test": "jest --config jestconfig.json",
     "build": "tsc",

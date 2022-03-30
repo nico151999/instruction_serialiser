@@ -36,6 +36,12 @@
     "no-multi-spaces": ["error"],
     "object-curly-spacing": ["error", "always"],
     "camelcase": ["error", { "properties": "always" }],
-    "@typescript-eslint/switch-exhaustiveness-check": ["error"]
+    "@typescript-eslint/switch-exhaustiveness-check": ["error"],
+    "@typescript-eslint/no-empty-interface": [
+      "error",
+      {
+        "allowSingleExtends": true
+      }
+    ]
   }
 }

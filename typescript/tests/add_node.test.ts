@@ -1,16 +1,11 @@
-import { NumberNode } from '../src/number_node';
-import { ArithmeticResultNodeWrapper } from '../src';
-import { AddNode } from '../src/add_node';
+import { createNumberNode, deserialiseInstruction } from '../src';
 
 describe('AddNode', () => {
   it('Should be able to perform an Add operation using the AddNode', async () => {
-    const numberNode = new NumberNode();
-    numberNode.setValue(1);
-    const arithmeticResultNode = new ArithmeticResultNodeWrapper();
-    arithmeticResultNode.setNumberNode(numberNode);
-    const addNode = new AddNode();
-    addNode.setLeftChild(arithmeticResultNode);
-    addNode.setRightChild(arithmeticResultNode);
-    expect(addNode.calculate(new Map())).toBe(2);
+    let numberNode = createNumberNode(1);
+    numberNode = numberNode.add(numberNode);
+    expect(numberNode.calculate(new Map())).toBe(2);
+    const wrapper = deserialiseInstruction(numberNode.serialise());
+    expect(wrapper.getArithmeticWrapper().calculate(new Map())).toBe(2);
   });
 });
