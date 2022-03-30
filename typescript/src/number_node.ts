@@ -1,6 +1,5 @@
 import {
   ArithmeticResultNodeWrapper,
-  ArithmeticVariableNode,
   NumberNode,
 } from './instruction_serialiser/instruction_serialiser_pb';
 import { CalculatableNode } from './calculatable_node';
