@@ -4,4 +4,4 @@ function deserialiseInstruction(data: Uint8Array): InstructionWrapper {
   return InstructionWrapper.deserializeBinary(data);
 }
 
-export { deserialiseInstruction };
+export { InstructionWrapper, deserialiseInstruction };
